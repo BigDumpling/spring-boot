@@ -1,0 +1,19 @@
+group 'com.ligq.study'
+version '1.0-SNAPSHOT'
+
+subprojects{
+    group 'com.ligq.study'
+    version '1.0-SNAPSHOT'
+    apply plugin: 'java'
+    buildscript {
+        ext {
+            springBootVersion = '2.1.1.RELEASE'
+            lombokVersion = '1.18.2'
+            junitVersion = '4.12'
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+}
