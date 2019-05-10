@@ -8,6 +8,8 @@ subprojects{
     buildscript {
         ext {
             springBootVersion = '2.1.1.RELEASE'
+            dubboBootVersion = '0.2.1.RELEASE'
+            dubboVersion = '2.7.1'
             lombokVersion = '1.18.2'
             junitVersion = '4.12'
         }

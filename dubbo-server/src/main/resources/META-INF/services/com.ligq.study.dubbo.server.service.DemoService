@@ -1,0 +1,9 @@
+#
+# Copyright (c) 2019. EverBright Yunfu Internet CO.,LTD. All rights reserved.
+# Unauthorized copying of this file, via any medium is strictly prohibited.
+#
+# Proprietary and confidential.
+#
+
+com.ligq.study.dubbo.server.service.impl.DemoService1Impl
+com.ligq.study.dubbo.server.service.impl.DemoService2Impl

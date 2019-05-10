@@ -1,0 +1,14 @@
+dubbo:
+  scan:
+    base-packages: com.ligq.study.dubbo.server.service
+  application:
+    name: annotation-provider
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    port: 20880
+    name: dubbo
+  provider:
+    cluster: failsafe
+    loadbalance:
+
