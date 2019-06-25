@@ -7,7 +7,7 @@
 
 package com.ligq.study.dubbo.server;
 
-import com.ligq.study.dubbo.server.service.DemoService;
+import com.ligq.study.dubbo.api.service.HelloWorldService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,9 +28,9 @@ public class SPIMainTest {
 
     @Test
     public void jdkSPITest(){
-        ServiceLoader<DemoService> demoServices = ServiceLoader.load(DemoService.class);
+        ServiceLoader<HelloWorldService> demoServices = ServiceLoader.load(HelloWorldService.class);
         log.info("test start");
-        for (DemoService d : demoServices){
+        for (HelloWorldService d : demoServices){
             d.sayHello("ligq");
         }
     }

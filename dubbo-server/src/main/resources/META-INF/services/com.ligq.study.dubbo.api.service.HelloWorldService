@@ -5,5 +5,5 @@
 # Proprietary and confidential.
 #
 
-com.ligq.study.dubbo.server.service.impl.DemoService1Impl
-com.ligq.study.dubbo.server.service.impl.DemoService2Impl
+com.ligq.study.dubbo.server.service.DemoService1Impl
+com.ligq.study.dubbo.server.service.DemoService2Impl

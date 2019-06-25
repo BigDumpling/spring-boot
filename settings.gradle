@@ -1,4 +1,5 @@
 rootProject.name = 'spring-boot'
 include 'dubbo-client'
 include 'dubbo-server'
+include 'dubbo-api'
 

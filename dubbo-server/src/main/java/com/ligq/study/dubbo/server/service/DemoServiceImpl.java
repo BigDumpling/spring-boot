@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-package com.ligq.study.dubbo.server.service.impl;
+package com.ligq.study.dubbo.server.service;
 
-import com.ligq.study.dubbo.server.service.DemoService;
+import com.ligq.study.dubbo.api.service.HelloWorldService;
 import org.apache.dubbo.config.annotation.Service;
 
 /**
@@ -17,8 +17,8 @@ import org.apache.dubbo.config.annotation.Service;
  * @description
  * @date 2019/5/7 0007,11:26
  */
-@Service(version = "1.0.0")
-public class DemoServiceImpl implements DemoService {
+@Service(version = "1.0")
+public class DemoServiceImpl implements HelloWorldService {
     @Override
     public String sayHello(String name) {
         return "Hello " + name;

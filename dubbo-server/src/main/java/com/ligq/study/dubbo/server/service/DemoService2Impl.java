@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-package com.ligq.study.dubbo.server.service.impl;
+package com.ligq.study.dubbo.server.service;
 
-import com.ligq.study.dubbo.server.service.DemoService;
+import com.ligq.study.dubbo.api.service.HelloWorldService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -18,10 +18,10 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2019/5/7 0007,14:17
  */
 @Slf4j
-public class DemoService1Impl implements DemoService {
+public class DemoService2Impl implements HelloWorldService {
     @Override
     public String sayHello(String name) {
-        log.info("DemoService1Impl name == {}", name);
-        return "DemoService1Impl " + name;
+        log.info("DemoService2Impl name == {}", name);
+        return "DemoService2Impl " + name;
     }
 }

@@ -1,6 +1,4 @@
 dubbo:
-  scan:
-    base-packages: com.ligq.study.dubbo.server.service
   application:
     name: annotation-provider
   registry:
@@ -10,5 +8,4 @@ dubbo:
     name: dubbo
   provider:
     cluster: failsafe
-    loadbalance:
 

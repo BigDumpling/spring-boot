@@ -8,6 +8,7 @@
 package com.ligq.study.dubbo.server;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -19,6 +20,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2019/5/7 0007,10:49
  */
 @Slf4j
+@EnableDubbo
 @SpringBootApplication
 public class DubboServerApplication {
 
