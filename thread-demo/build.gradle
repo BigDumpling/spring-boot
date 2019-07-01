@@ -24,16 +24,9 @@ repositories {
 }
 
 dependencies {
-    implementation project(':dubbo-api')
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation ("org.apache.dubbo:dubbo-spring-boot-starter:${apacheDubboBootVersion}")
-    implementation ("org.apache.dubbo:dubbo:${dubboVersion}")
-    implementation ("org.apache.curator:curator-framework:${curatorFrameworkVersion}")
-    implementation ("org.apache.curator:curator-recipes:${curatorFrameworkVersion}")
-    implementation ("org.apache.zookeeper:zookeeper:${zookeeperVersion}")
-    testImplementation ("junit:junit:${junitVersion}")
-
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
     testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation ("junit:junit:${junitVersion}")
 }

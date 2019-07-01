@@ -1,0 +1,2 @@
+dubbo1=com.ligq.study.dubbo.server.service.DubboSpiService1Impl
+dubbo2=com.ligq.study.dubbo.server.service.DubboSpiService2Impl

@@ -33,7 +33,6 @@ dependencies {
     implementation ("org.apache.curator:curator-framework:${curatorFrameworkVersion}")
     implementation ("org.apache.curator:curator-recipes:${curatorFrameworkVersion}")
     implementation ("org.apache.zookeeper:zookeeper:${zookeeperVersion}")
-    testCompile group: 'junit', name: 'junit', version: '4.12'
     testImplementation ("junit:junit:${junitVersion}")
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
     testCompileOnly("org.projectlombok:lombok:${lombokVersion}")

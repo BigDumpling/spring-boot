@@ -17,7 +17,7 @@ import org.apache.dubbo.config.annotation.Service;
  * @description
  * @date 2019/5/7 0007,11:26
  */
-@Service(version = "1.0")
+@Service(version = "1.0", loadbalance = "random", cluster = "failover")
 public class DemoServiceImpl implements HelloWorldService {
     @Override
     public String sayHello(String name) {
