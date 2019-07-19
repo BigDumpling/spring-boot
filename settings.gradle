@@ -4,4 +4,7 @@ include 'dubbo-server'
 include 'dubbo-api'
 include 'rocketmq-demo'
 include 'thread-demo'
+include 'disconf-demo'
+include 'provider-demo'
+include 'consumer-demo'
 
