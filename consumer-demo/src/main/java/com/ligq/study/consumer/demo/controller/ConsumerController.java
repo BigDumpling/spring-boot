@@ -1,7 +1,10 @@
 package com.ligq.study.consumer.demo.controller;
 
+import com.ligq.study.consumer.demo.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +18,32 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     * 模拟loadBalancerClient客户端
+     */
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+
+    @Autowired
+    private HelloService helloService;
+
     @GetMapping("/demo")
-    public void consumerDemo(){
-        String result = this.restTemplate.getForObject("http://127.0.0.1:9001/provider/demo", String.class);
+    public String consumerDemo() {
+        String result = this.restTemplate.getForObject("http://provider-demo/provider/demo", String.class);
         log.info("result == {}", result);
+        return result;
+    }
+
+    @GetMapping("/info")
+    public void getInterfaceInfo() {
+        ServiceInstance choose = loadBalancerClient.choose("provider-demo");
+        log.info("choose port == {}", choose.getPort());
+    }
+
+    @GetMapping("/feign")
+    public String getFeign() {
+        String result = helloService.sayHello();
+        log.info("result == {}", result);
+        return result;
     }
 }

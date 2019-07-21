@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/provider")
 public class ProviderController {
 
-    @GetMapping(params = "/demo")
+    @GetMapping("/demo")
     public String providerDemo(){
         log.info("------------------ Provider-demo -------------------------");
         return "Provider-demo";

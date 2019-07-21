@@ -7,4 +7,5 @@ include 'thread-demo'
 include 'disconf-demo'
 include 'provider-demo'
 include 'consumer-demo'
+include 'eureka-demo'
 
