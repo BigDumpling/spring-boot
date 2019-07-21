@@ -1,6 +1,7 @@
 package com.ligq.study.consumer.demo.controller;
 
 import com.ligq.study.consumer.demo.service.HelloService;
+import com.netflix.ribbon.proxy.annotation.Hystrix;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -28,6 +29,7 @@ public class ConsumerController {
     private HelloService helloService;
 
     @GetMapping("/demo")
+    @Hystrix
     public String consumerDemo() {
         String result = this.restTemplate.getForObject("http://provider-demo/provider/demo", String.class);
         log.info("result == {}", result);

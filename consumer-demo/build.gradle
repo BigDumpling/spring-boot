@@ -29,6 +29,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${springCloudVersion}")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudVersion}")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${springCloudVersion}")
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
     testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
     testImplementation('org.springframework.boot:spring-boot-starter-test')
