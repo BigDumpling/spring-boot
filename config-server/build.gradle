@@ -27,14 +27,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${springCloudVersion}")
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudVersion}")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${springCloudVersion}")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard:${springCloudVersion}")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul:${springCloudVersion}")
-    implementation("org.springframework.cloud:spring-cloud-starter-config:${springCloudVersion}")
-    implementation("org.springframework.retry:spring-retry:${springRetryVerison}")
+    implementation("org.springframework.cloud:spring-cloud-config-server:${springCloudVersion}")
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
     testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
     testImplementation('org.springframework.boot:spring-boot-starter-test')

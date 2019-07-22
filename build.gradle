@@ -17,6 +17,7 @@ subprojects{
             rocketmqVersion = '4.5.1'
             disconfVersion = '2.6.36'
             springCloudVersion = '2.1.2.RELEASE'
+            springRetryVerison = '1.2.4.RELEASE'
             lombokVersion = '1.18.2'
             junitVersion = '4.12'
         }

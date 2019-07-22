@@ -1,0 +1,27 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/BigDumpling/SpringCloudConfig.git
+          search-paths: '{application}'
+          delete-untracked-branches: true
+          basedir: D:\study\config
+          force-pull: true
+        overrides:
+          foo:
+            version: bar
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5

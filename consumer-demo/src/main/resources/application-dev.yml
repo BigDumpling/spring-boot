@@ -1,8 +1,28 @@
 eureka:
   client:
+    healthcheck:
+      enabled: true
     register-with-eureka: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/
   instance:
     lease-expiration-duration-in-seconds: 2
     lease-renewal-interval-in-seconds: 1
+feign:
+  hystrix:
+    enabled: true
+
+zuul:
+  routes:
+    api-a:
+      path: /consumer/a/**
+      serviceId: provider-demo
+    api-b:
+      path: /provider/**
+      serviceId: provider-demo
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
