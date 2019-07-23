@@ -1,28 +1,22 @@
-eureka:
-  client:
-    healthcheck:
-      enabled: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
-  instance:
-    lease-expiration-duration-in-seconds: 2
-    lease-renewal-interval-in-seconds: 1
-feign:
-  hystrix:
-    enabled: true
-
 zuul:
   routes:
     api-a:
-      path: /consumer/a/**
-      serviceId: provider-demo
+      path: /consumer/**
+#      stripPrefix: false
+#      serviceId: consumer-demo
+      url: forward:/consumer
     api-b:
       path: /provider/**
       serviceId: provider-demo
+  sensitive-headers: Cookie,Set-Cookie,Authorization
+  retryable: true
+
 management:
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /actuator
+
+feign:
+  name: provider-demo

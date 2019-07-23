@@ -18,10 +18,14 @@ spring:
             version: bar
 eureka:
   client:
+    refresh:
+      enable: false
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://eureka:123456@127.0.0.1:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     lease-expiration-duration-in-seconds: 10
     lease-renewal-interval-in-seconds: 5

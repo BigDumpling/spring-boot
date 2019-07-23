@@ -7,12 +7,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/provider")
+@RequestMapping
 public class ProviderController {
 
-    @GetMapping("/demo")
+    @GetMapping("/provider/demo")
     public String providerDemo(){
         log.info("------------------ Provider-demo -------------------------");
         return "Provider-demo";
+    }
+
+    @GetMapping("/consumer/demo")
+    public String consumerDemo(){
+        log.info("------------------ Provider-demo -------------------------");
+        return "Provider-Consumer-demo";
+    }
+
+    @GetMapping("/demo")
+    public String demo(){
+        log.info("------------------ Provider-demo -------------------------");
+        return "Provider-demo2";
     }
 }
