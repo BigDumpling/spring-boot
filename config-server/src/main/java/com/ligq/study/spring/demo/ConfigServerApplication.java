@@ -1,4 +1,4 @@
-package com.ligq.study.config.server.demo;
+package com.ligq.study.spring.demo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.WebApplicationType;

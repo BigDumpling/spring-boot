@@ -9,4 +9,7 @@ include 'provider-demo'
 include 'consumer-demo'
 include 'eureka-demo'
 include 'config-server'
+include 'spring-demo'
+include 'spring-demo'
+include 'spring-demo'
 
