@@ -13,7 +13,7 @@ public class HelloSmartLifeCycle implements SmartLifecycle, InitializingBean {
 
     @PostConstruct
     public void initInstance(){
-        log.info("---------- HelloSmartLifeCycle initInstance() ------------------");
+        log.info("---------- HelloSmartLifeCycle @PostConstruct initInstance() ------------------");
     }
 
     private volatile boolean running = false;
@@ -45,7 +45,7 @@ public class HelloSmartLifeCycle implements SmartLifecycle, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("-----------------------------------HelloSmartLifeCycle init() -------------------------");
+        log.info("-----------------------------------HelloSmartLifeCycle afterPropertiesSet init() -------------------------");
     }
 
 //    @Override

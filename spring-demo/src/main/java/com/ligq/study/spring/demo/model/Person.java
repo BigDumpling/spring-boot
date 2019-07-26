@@ -14,6 +14,8 @@ import javax.annotation.PreDestroy;
 @Slf4j
 public class Person implements InitializingBean, DisposableBean {
 
+    public final String name = "LiGuoQiang";
+
     @PostConstruct
     public void initPost() {
         log.info("Bean1 init-method == initPost()");
