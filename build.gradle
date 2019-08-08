@@ -18,6 +18,9 @@ subprojects{
             disconfVersion = '2.6.36'
             springCloudVersion = '2.1.2.RELEASE'
             springRetryVerison = '1.2.4.RELEASE'
+            mysqlConnectorVersion = '8.0.17'
+            mybatisBootStarterVersion = '2.1.0'
+            druidBootStarterVersion = '1.1.18'
             lombokVersion = '1.18.2'
             junitVersion = '4.12'
         }

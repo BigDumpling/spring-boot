@@ -1,12 +1,9 @@
 package com.ligq.study.spring.demo;
 
-import com.ligq.study.spring.demo.control.CommandManager;
-import com.ligq.study.spring.demo.control.CommandManagerLookUp;
 import com.ligq.study.spring.demo.model.ApplicationYml;
 import com.ligq.study.spring.demo.model.Company;
 import com.ligq.study.spring.demo.model.Employee;
 import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.asm.Advice;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeanWrapper;

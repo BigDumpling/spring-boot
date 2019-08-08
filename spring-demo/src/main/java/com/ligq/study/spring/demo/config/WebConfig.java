@@ -1,8 +1,7 @@
 
 package com.ligq.study.spring.demo.config;
 
-import com.ligq.study.spring.demo.control.CommandManager;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ligq.study.spring.demo.service.CommandManager;
 import org.springframework.beans.factory.config.CustomEditorConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +28,7 @@ public class WebConfig {
     }
 
     @Bean
-    public CustomPropertyEditorRegistrar customPropertyEditorRegistrar(){
+    public CustomPropertyEditorRegistrar customPropertyEditorRegistrar() {
         return new CustomPropertyEditorRegistrar();
     }
 
