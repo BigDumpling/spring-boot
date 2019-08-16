@@ -14,4 +14,5 @@ include 'spring-demo'
 include 'spring-demo'
 include 'custom-schema-demo'
 include 'demo-boot-starter'
+include 'mybatis-demo'
 

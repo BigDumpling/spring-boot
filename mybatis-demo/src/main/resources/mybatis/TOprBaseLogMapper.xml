@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TOprBaseLogMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TOprBaseLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="OP_LOG_ID" jdbcType="VARCHAR" property="opLogId" />
+    <result column="OP_OBJ_ID" jdbcType="VARCHAR" property="opObjId" />
+    <result column="OP_TYPE" jdbcType="VARCHAR" property="opType" />
+    <result column="OP_TYPE_DESC" jdbcType="VARCHAR" property="opTypeDesc" />
+    <result column="OP_USER" jdbcType="VARCHAR" property="opUser" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="USE_FLAG" jdbcType="CHAR" property="useFlag" />
+    <result column="CREATE_TIME" jdbcType="BIGINT" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="BIGINT" property="updateTime" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="ROW_RAW_DATA" jdbcType="LONGVARCHAR" property="rowRawData" />
+    <result column="ROW_DATA" jdbcType="LONGVARCHAR" property="rowData" />
+  </resultMap>
+</mapper>
