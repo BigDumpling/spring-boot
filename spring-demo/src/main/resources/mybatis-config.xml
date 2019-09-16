@@ -8,7 +8,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/study?serverTimezone=UTC"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>
@@ -16,6 +16,7 @@
     </environments>
     <mappers>
         <mapper resource="CityMapper.xml"/>
+        <mapper resource="ProductMapper.xml"/>
 <!--        <mapper url="file://CityMapper.xml"/>-->
 <!--        <mapper class="com.ligq.study.spring.demo.mybatis.CityMapper"/>-->
 <!--        <package name="com.ligq.study.spring.demo.mybatis" />-->

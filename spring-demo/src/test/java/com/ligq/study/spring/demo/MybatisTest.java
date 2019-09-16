@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @Slf4j
@@ -33,5 +35,16 @@ public class MybatisTest {
         CityMapper cityMapper = (CityMapper) context.getBean("cityMapper");
         City city = cityMapper.selectPrimary(1);
         log.info("city == {}", city);
+    }
+
+    @Test
+    public void sqlSessionTemplateTest(){
+        SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(MybatisUtil.getSqlSessionFactory());
+        CityMapper cityMapper = sqlSessionTemplate.getMapper(CityMapper.class);
+        City city = cityMapper.selectPrimary(1);
+        log.info("city == {}", city);
+
+        City city2 = sqlSessionTemplate.selectOne("com.ligq.study.spring.demo.mybatis.CityMapper.selectPrimary", 1);
+        log.info("city2 == {}", city2);
     }
 }

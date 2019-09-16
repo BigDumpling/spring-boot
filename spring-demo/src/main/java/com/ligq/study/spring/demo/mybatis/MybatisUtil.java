@@ -41,8 +41,17 @@ public class MybatisUtil {
 
     public static void main(String[] args){
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        CityMapper cityMapper = sqlSession.getMapper(CityMapper.class);
-        City city = cityMapper.selectPrimary(1);
-        log.info("city == {}", city);
+
+        Product product = new Product();
+        product.setProductName("运动鞋");
+        product.setProductNamePinYin("yundongxie");
+        product.setProductType("衣服");
+        product.setPurchasePrice(100);
+        product.setSalePrice(100);
+
+        ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
+        int result = productMapper.insertProduct(product);
+        sqlSession.commit();
+        log.info("result == {}", result);
     }
 }

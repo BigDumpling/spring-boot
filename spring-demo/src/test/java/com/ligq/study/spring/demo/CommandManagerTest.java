@@ -3,6 +3,8 @@ package com.ligq.study.spring.demo;
 import com.ligq.study.spring.demo.model.ApplicationYml;
 import com.ligq.study.spring.demo.model.Company;
 import com.ligq.study.spring.demo.model.Employee;
+import com.ligq.study.spring.demo.service.CommandManager;
+import com.ligq.study.spring.demo.service.CommandManagerLookUp;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,8 +40,8 @@ public class CommandManagerTest {
 
     @Test
     public void singletonTest() {
-        log.info("address1 == {}", commandManager.process());
-        log.info("address2 == {}", commandManager.process());
+//        log.info("address1 == {}", commandManager.process());
+//        log.info("address2 == {}", commandManager.process());
     }
 
     @Test

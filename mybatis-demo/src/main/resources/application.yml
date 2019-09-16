@@ -1,0 +1,9 @@
+server:
+  port: 9007
+
+spring:
+  application:
+    name: mybatis-demo
+  profiles:
+    include:
+      - dev

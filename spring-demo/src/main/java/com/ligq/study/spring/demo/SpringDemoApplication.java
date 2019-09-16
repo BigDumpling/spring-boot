@@ -27,14 +27,14 @@ import java.util.Locale;
 public class SpringDemoApplication {
 
     public static void main(String[] args) {
-//        SpringApplication.run(SpringDemoApplication.class, args);
+        SpringApplication.run(SpringDemoApplication.class, args);
 
         /**
          * 使用AnnotationConfigAplicationContext实例化Spring容器，启动项目
          */
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(HelloWorldServiceImpl.class);
-        HelloWorldServiceImpl controller = (HelloWorldServiceImpl)applicationContext.getBean("helloWorldServiceImpl");
-        controller.sayHello();
+//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(HelloWorldServiceImpl.class);
+//        HelloWorldServiceImpl controller = (HelloWorldServiceImpl)applicationContext.getBean("helloWorldServiceImpl");
+//        controller.sayHello();
 //        applicationContext.scan("com.ligq.study.spring.demo");
 //        applicationContext.refresh();
 //        applicationContext.start();

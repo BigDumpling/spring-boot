@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TFundLoanInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TFundLoanInfo">
+    <id column="loan_id" jdbcType="VARCHAR" property="loanId" />
+    <result column="fund_org_code" jdbcType="VARCHAR" property="fundOrgCode" />
+    <result column="fund_org_name" jdbcType="VARCHAR" property="fundOrgName" />
+    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="id_type" jdbcType="CHAR" property="idType" />
+    <result column="id_no" jdbcType="VARCHAR" property="idNo" />
+    <result column="customer_mobile" jdbcType="VARCHAR" property="customerMobile" />
+    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="customer_label" jdbcType="CHAR" property="customerLabel" />
+    <result column="loan_amt" jdbcType="BIGINT" property="loanAmt" />
+    <result column="loan_purpose" jdbcType="VARCHAR" property="loanPurpose" />
+    <result column="total_period" jdbcType="INTEGER" property="totalPeriod" />
+    <result column="rate_type" jdbcType="CHAR" property="rateType" />
+    <result column="year_days" jdbcType="INTEGER" property="yearDays" />
+    <result column="rate" jdbcType="REAL" property="rate" />
+    <result column="repay_type" jdbcType="CHAR" property="repayType" />
+    <result column="repay_cycle_type" jdbcType="CHAR" property="repayCycleType" />
+    <result column="repay_cycle" jdbcType="INTEGER" property="repayCycle" />
+    <result column="duebill_id" jdbcType="VARCHAR" property="duebillId" />
+    <result column="out_duebill_id" jdbcType="VARCHAR" property="outDuebillId" />
+    <result column="biz_id" jdbcType="VARCHAR" property="bizId" />
+    <result column="biz_status" jdbcType="CHAR" property="bizStatus" />
+    <result column="error_desc" jdbcType="VARCHAR" property="errorDesc" />
+    <result column="lessee_id" jdbcType="VARCHAR" property="lesseeId" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="due_date" jdbcType="VARCHAR" property="dueDate" />
+    <result column="first_repay_date" jdbcType="VARCHAR" property="firstRepayDate" />
+    <result column="loan_acc_bank_code" jdbcType="VARCHAR" property="loanAccBankCode" />
+    <result column="loan_card_no" jdbcType="VARCHAR" property="loanCardNo" />
+    <result column="loan_account_name" jdbcType="VARCHAR" property="loanAccountName" />
+    <result column="repay_acc_bank_code" jdbcType="VARCHAR" property="repayAccBankCode" />
+    <result column="repay_card_no" jdbcType="VARCHAR" property="repayCardNo" />
+    <result column="repay_account_name" jdbcType="VARCHAR" property="repayAccountName" />
+    <result column="interest_type" jdbcType="CHAR" property="interestType" />
+    <result column="disburse_id" jdbcType="VARCHAR" property="disburseId" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="clear_date" jdbcType="VARCHAR" property="clearDate" />
+    <result column="callback_url" jdbcType="VARCHAR" property="callbackUrl" />
+    <result column="is_fix_repay" jdbcType="CHAR" property="isFixRepay" />
+    <result column="repay_date" jdbcType="VARCHAR" property="repayDate" />
+    <result column="contract_ids" jdbcType="VARCHAR" property="contractIds" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.ligq.study.mybatis.demo.model.TFundLoanInfo">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    loan_id, fund_org_code, fund_org_name, customer_id, customer_name, id_type, id_no, 
+    customer_mobile, product_id, product_code, product_name, customer_label, loan_amt, 
+    loan_purpose, total_period, rate_type, year_days, rate, repay_type, repay_cycle_type, 
+    repay_cycle, duebill_id, out_duebill_id, biz_id, biz_status, error_desc, lessee_id, 
+    start_date, due_date, first_repay_date, loan_acc_bank_code, loan_card_no, loan_account_name, 
+    repay_acc_bank_code, repay_card_no, repay_account_name, interest_type, disburse_id, 
+    create_time, update_time, clear_date, callback_url, is_fix_repay, repay_date, contract_ids
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_fund_loan_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_fund_loan_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_fund_loan_info
+    where loan_id = #{loanId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_fund_loan_info
+    where loan_id = #{loanId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfoExample">
+    delete from t_fund_loan_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfo">
+    insert into t_fund_loan_info (loan_id, fund_org_code, fund_org_name, 
+      customer_id, customer_name, id_type, 
+      id_no, customer_mobile, product_id, 
+      product_code, product_name, customer_label, 
+      loan_amt, loan_purpose, total_period, 
+      rate_type, year_days, rate, 
+      repay_type, repay_cycle_type, repay_cycle, 
+      duebill_id, out_duebill_id, biz_id, 
+      biz_status, error_desc, lessee_id, 
+      start_date, due_date, first_repay_date, 
+      loan_acc_bank_code, loan_card_no, loan_account_name, 
+      repay_acc_bank_code, repay_card_no, repay_account_name, 
+      interest_type, disburse_id, create_time, 
+      update_time, clear_date, callback_url, 
+      is_fix_repay, repay_date, contract_ids, 
+      content)
+    values (#{loanId,jdbcType=VARCHAR}, #{fundOrgCode,jdbcType=VARCHAR}, #{fundOrgName,jdbcType=VARCHAR}, 
+      #{customerId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{idType,jdbcType=CHAR}, 
+      #{idNo,jdbcType=VARCHAR}, #{customerMobile,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, 
+      #{productCode,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{customerLabel,jdbcType=CHAR}, 
+      #{loanAmt,jdbcType=BIGINT}, #{loanPurpose,jdbcType=VARCHAR}, #{totalPeriod,jdbcType=INTEGER}, 
+      #{rateType,jdbcType=CHAR}, #{yearDays,jdbcType=INTEGER}, #{rate,jdbcType=REAL}, 
+      #{repayType,jdbcType=CHAR}, #{repayCycleType,jdbcType=CHAR}, #{repayCycle,jdbcType=INTEGER}, 
+      #{duebillId,jdbcType=VARCHAR}, #{outDuebillId,jdbcType=VARCHAR}, #{bizId,jdbcType=VARCHAR}, 
+      #{bizStatus,jdbcType=CHAR}, #{errorDesc,jdbcType=VARCHAR}, #{lesseeId,jdbcType=VARCHAR}, 
+      #{startDate,jdbcType=VARCHAR}, #{dueDate,jdbcType=VARCHAR}, #{firstRepayDate,jdbcType=VARCHAR}, 
+      #{loanAccBankCode,jdbcType=VARCHAR}, #{loanCardNo,jdbcType=VARCHAR}, #{loanAccountName,jdbcType=VARCHAR}, 
+      #{repayAccBankCode,jdbcType=VARCHAR}, #{repayCardNo,jdbcType=VARCHAR}, #{repayAccountName,jdbcType=VARCHAR}, 
+      #{interestType,jdbcType=CHAR}, #{disburseId,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{clearDate,jdbcType=VARCHAR}, #{callbackUrl,jdbcType=VARCHAR}, 
+      #{isFixRepay,jdbcType=CHAR}, #{repayDate,jdbcType=VARCHAR}, #{contractIds,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfo">
+    insert into t_fund_loan_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loanId != null">
+        loan_id,
+      </if>
+      <if test="fundOrgCode != null">
+        fund_org_code,
+      </if>
+      <if test="fundOrgName != null">
+        fund_org_name,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="idType != null">
+        id_type,
+      </if>
+      <if test="idNo != null">
+        id_no,
+      </if>
+      <if test="customerMobile != null">
+        customer_mobile,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="productCode != null">
+        product_code,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="customerLabel != null">
+        customer_label,
+      </if>
+      <if test="loanAmt != null">
+        loan_amt,
+      </if>
+      <if test="loanPurpose != null">
+        loan_purpose,
+      </if>
+      <if test="totalPeriod != null">
+        total_period,
+      </if>
+      <if test="rateType != null">
+        rate_type,
+      </if>
+      <if test="yearDays != null">
+        year_days,
+      </if>
+      <if test="rate != null">
+        rate,
+      </if>
+      <if test="repayType != null">
+        repay_type,
+      </if>
+      <if test="repayCycleType != null">
+        repay_cycle_type,
+      </if>
+      <if test="repayCycle != null">
+        repay_cycle,
+      </if>
+      <if test="duebillId != null">
+        duebill_id,
+      </if>
+      <if test="outDuebillId != null">
+        out_duebill_id,
+      </if>
+      <if test="bizId != null">
+        biz_id,
+      </if>
+      <if test="bizStatus != null">
+        biz_status,
+      </if>
+      <if test="errorDesc != null">
+        error_desc,
+      </if>
+      <if test="lesseeId != null">
+        lessee_id,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="firstRepayDate != null">
+        first_repay_date,
+      </if>
+      <if test="loanAccBankCode != null">
+        loan_acc_bank_code,
+      </if>
+      <if test="loanCardNo != null">
+        loan_card_no,
+      </if>
+      <if test="loanAccountName != null">
+        loan_account_name,
+      </if>
+      <if test="repayAccBankCode != null">
+        repay_acc_bank_code,
+      </if>
+      <if test="repayCardNo != null">
+        repay_card_no,
+      </if>
+      <if test="repayAccountName != null">
+        repay_account_name,
+      </if>
+      <if test="interestType != null">
+        interest_type,
+      </if>
+      <if test="disburseId != null">
+        disburse_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="clearDate != null">
+        clear_date,
+      </if>
+      <if test="callbackUrl != null">
+        callback_url,
+      </if>
+      <if test="isFixRepay != null">
+        is_fix_repay,
+      </if>
+      <if test="repayDate != null">
+        repay_date,
+      </if>
+      <if test="contractIds != null">
+        contract_ids,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loanId != null">
+        #{loanId,jdbcType=VARCHAR},
+      </if>
+      <if test="fundOrgCode != null">
+        #{fundOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fundOrgName != null">
+        #{fundOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerMobile != null">
+        #{customerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerLabel != null">
+        #{customerLabel,jdbcType=CHAR},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=BIGINT},
+      </if>
+      <if test="loanPurpose != null">
+        #{loanPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPeriod != null">
+        #{totalPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="rateType != null">
+        #{rateType,jdbcType=CHAR},
+      </if>
+      <if test="yearDays != null">
+        #{yearDays,jdbcType=INTEGER},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=REAL},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=CHAR},
+      </if>
+      <if test="repayCycleType != null">
+        #{repayCycleType,jdbcType=CHAR},
+      </if>
+      <if test="repayCycle != null">
+        #{repayCycle,jdbcType=INTEGER},
+      </if>
+      <if test="duebillId != null">
+        #{duebillId,jdbcType=VARCHAR},
+      </if>
+      <if test="outDuebillId != null">
+        #{outDuebillId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizId != null">
+        #{bizId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizStatus != null">
+        #{bizStatus,jdbcType=CHAR},
+      </if>
+      <if test="errorDesc != null">
+        #{errorDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lesseeId != null">
+        #{lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstRepayDate != null">
+        #{firstRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAccBankCode != null">
+        #{loanAccBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardNo != null">
+        #{loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAccountName != null">
+        #{loanAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccBankCode != null">
+        #{repayAccBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccountName != null">
+        #{repayAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="interestType != null">
+        #{interestType,jdbcType=CHAR},
+      </if>
+      <if test="disburseId != null">
+        #{disburseId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="clearDate != null">
+        #{clearDate,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackUrl != null">
+        #{callbackUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isFixRepay != null">
+        #{isFixRepay,jdbcType=CHAR},
+      </if>
+      <if test="repayDate != null">
+        #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contractIds != null">
+        #{contractIds,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfoExample" resultType="java.lang.Long">
+    select count(*) from t_fund_loan_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_fund_loan_info
+    <set>
+      <if test="record.loanId != null">
+        loan_id = #{record.loanId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundOrgCode != null">
+        fund_org_code = #{record.fundOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundOrgName != null">
+        fund_org_name = #{record.fundOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerId != null">
+        customer_id = #{record.customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idType != null">
+        id_type = #{record.idType,jdbcType=CHAR},
+      </if>
+      <if test="record.idNo != null">
+        id_no = #{record.idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerMobile != null">
+        customer_mobile = #{record.customerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null">
+        product_id = #{record.productId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productCode != null">
+        product_code = #{record.productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productName != null">
+        product_name = #{record.productName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerLabel != null">
+        customer_label = #{record.customerLabel,jdbcType=CHAR},
+      </if>
+      <if test="record.loanAmt != null">
+        loan_amt = #{record.loanAmt,jdbcType=BIGINT},
+      </if>
+      <if test="record.loanPurpose != null">
+        loan_purpose = #{record.loanPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalPeriod != null">
+        total_period = #{record.totalPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.rateType != null">
+        rate_type = #{record.rateType,jdbcType=CHAR},
+      </if>
+      <if test="record.yearDays != null">
+        year_days = #{record.yearDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.rate != null">
+        rate = #{record.rate,jdbcType=REAL},
+      </if>
+      <if test="record.repayType != null">
+        repay_type = #{record.repayType,jdbcType=CHAR},
+      </if>
+      <if test="record.repayCycleType != null">
+        repay_cycle_type = #{record.repayCycleType,jdbcType=CHAR},
+      </if>
+      <if test="record.repayCycle != null">
+        repay_cycle = #{record.repayCycle,jdbcType=INTEGER},
+      </if>
+      <if test="record.duebillId != null">
+        duebill_id = #{record.duebillId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outDuebillId != null">
+        out_duebill_id = #{record.outDuebillId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bizId != null">
+        biz_id = #{record.bizId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bizStatus != null">
+        biz_status = #{record.bizStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.errorDesc != null">
+        error_desc = #{record.errorDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lesseeId != null">
+        lessee_id = #{record.lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startDate != null">
+        start_date = #{record.startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dueDate != null">
+        due_date = #{record.dueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstRepayDate != null">
+        first_repay_date = #{record.firstRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanAccBankCode != null">
+        loan_acc_bank_code = #{record.loanAccBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanCardNo != null">
+        loan_card_no = #{record.loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanAccountName != null">
+        loan_account_name = #{record.loanAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repayAccBankCode != null">
+        repay_acc_bank_code = #{record.repayAccBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repayCardNo != null">
+        repay_card_no = #{record.repayCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repayAccountName != null">
+        repay_account_name = #{record.repayAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interestType != null">
+        interest_type = #{record.interestType,jdbcType=CHAR},
+      </if>
+      <if test="record.disburseId != null">
+        disburse_id = #{record.disburseId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.clearDate != null">
+        clear_date = #{record.clearDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.callbackUrl != null">
+        callback_url = #{record.callbackUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isFixRepay != null">
+        is_fix_repay = #{record.isFixRepay,jdbcType=CHAR},
+      </if>
+      <if test="record.repayDate != null">
+        repay_date = #{record.repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractIds != null">
+        contract_ids = #{record.contractIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_fund_loan_info
+    set loan_id = #{record.loanId,jdbcType=VARCHAR},
+      fund_org_code = #{record.fundOrgCode,jdbcType=VARCHAR},
+      fund_org_name = #{record.fundOrgName,jdbcType=VARCHAR},
+      customer_id = #{record.customerId,jdbcType=VARCHAR},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      id_type = #{record.idType,jdbcType=CHAR},
+      id_no = #{record.idNo,jdbcType=VARCHAR},
+      customer_mobile = #{record.customerMobile,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=VARCHAR},
+      product_code = #{record.productCode,jdbcType=VARCHAR},
+      product_name = #{record.productName,jdbcType=VARCHAR},
+      customer_label = #{record.customerLabel,jdbcType=CHAR},
+      loan_amt = #{record.loanAmt,jdbcType=BIGINT},
+      loan_purpose = #{record.loanPurpose,jdbcType=VARCHAR},
+      total_period = #{record.totalPeriod,jdbcType=INTEGER},
+      rate_type = #{record.rateType,jdbcType=CHAR},
+      year_days = #{record.yearDays,jdbcType=INTEGER},
+      rate = #{record.rate,jdbcType=REAL},
+      repay_type = #{record.repayType,jdbcType=CHAR},
+      repay_cycle_type = #{record.repayCycleType,jdbcType=CHAR},
+      repay_cycle = #{record.repayCycle,jdbcType=INTEGER},
+      duebill_id = #{record.duebillId,jdbcType=VARCHAR},
+      out_duebill_id = #{record.outDuebillId,jdbcType=VARCHAR},
+      biz_id = #{record.bizId,jdbcType=VARCHAR},
+      biz_status = #{record.bizStatus,jdbcType=CHAR},
+      error_desc = #{record.errorDesc,jdbcType=VARCHAR},
+      lessee_id = #{record.lesseeId,jdbcType=VARCHAR},
+      start_date = #{record.startDate,jdbcType=VARCHAR},
+      due_date = #{record.dueDate,jdbcType=VARCHAR},
+      first_repay_date = #{record.firstRepayDate,jdbcType=VARCHAR},
+      loan_acc_bank_code = #{record.loanAccBankCode,jdbcType=VARCHAR},
+      loan_card_no = #{record.loanCardNo,jdbcType=VARCHAR},
+      loan_account_name = #{record.loanAccountName,jdbcType=VARCHAR},
+      repay_acc_bank_code = #{record.repayAccBankCode,jdbcType=VARCHAR},
+      repay_card_no = #{record.repayCardNo,jdbcType=VARCHAR},
+      repay_account_name = #{record.repayAccountName,jdbcType=VARCHAR},
+      interest_type = #{record.interestType,jdbcType=CHAR},
+      disburse_id = #{record.disburseId,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=BIGINT},
+      clear_date = #{record.clearDate,jdbcType=VARCHAR},
+      callback_url = #{record.callbackUrl,jdbcType=VARCHAR},
+      is_fix_repay = #{record.isFixRepay,jdbcType=CHAR},
+      repay_date = #{record.repayDate,jdbcType=VARCHAR},
+      contract_ids = #{record.contractIds,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_fund_loan_info
+    set loan_id = #{record.loanId,jdbcType=VARCHAR},
+      fund_org_code = #{record.fundOrgCode,jdbcType=VARCHAR},
+      fund_org_name = #{record.fundOrgName,jdbcType=VARCHAR},
+      customer_id = #{record.customerId,jdbcType=VARCHAR},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      id_type = #{record.idType,jdbcType=CHAR},
+      id_no = #{record.idNo,jdbcType=VARCHAR},
+      customer_mobile = #{record.customerMobile,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=VARCHAR},
+      product_code = #{record.productCode,jdbcType=VARCHAR},
+      product_name = #{record.productName,jdbcType=VARCHAR},
+      customer_label = #{record.customerLabel,jdbcType=CHAR},
+      loan_amt = #{record.loanAmt,jdbcType=BIGINT},
+      loan_purpose = #{record.loanPurpose,jdbcType=VARCHAR},
+      total_period = #{record.totalPeriod,jdbcType=INTEGER},
+      rate_type = #{record.rateType,jdbcType=CHAR},
+      year_days = #{record.yearDays,jdbcType=INTEGER},
+      rate = #{record.rate,jdbcType=REAL},
+      repay_type = #{record.repayType,jdbcType=CHAR},
+      repay_cycle_type = #{record.repayCycleType,jdbcType=CHAR},
+      repay_cycle = #{record.repayCycle,jdbcType=INTEGER},
+      duebill_id = #{record.duebillId,jdbcType=VARCHAR},
+      out_duebill_id = #{record.outDuebillId,jdbcType=VARCHAR},
+      biz_id = #{record.bizId,jdbcType=VARCHAR},
+      biz_status = #{record.bizStatus,jdbcType=CHAR},
+      error_desc = #{record.errorDesc,jdbcType=VARCHAR},
+      lessee_id = #{record.lesseeId,jdbcType=VARCHAR},
+      start_date = #{record.startDate,jdbcType=VARCHAR},
+      due_date = #{record.dueDate,jdbcType=VARCHAR},
+      first_repay_date = #{record.firstRepayDate,jdbcType=VARCHAR},
+      loan_acc_bank_code = #{record.loanAccBankCode,jdbcType=VARCHAR},
+      loan_card_no = #{record.loanCardNo,jdbcType=VARCHAR},
+      loan_account_name = #{record.loanAccountName,jdbcType=VARCHAR},
+      repay_acc_bank_code = #{record.repayAccBankCode,jdbcType=VARCHAR},
+      repay_card_no = #{record.repayCardNo,jdbcType=VARCHAR},
+      repay_account_name = #{record.repayAccountName,jdbcType=VARCHAR},
+      interest_type = #{record.interestType,jdbcType=CHAR},
+      disburse_id = #{record.disburseId,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=BIGINT},
+      clear_date = #{record.clearDate,jdbcType=VARCHAR},
+      callback_url = #{record.callbackUrl,jdbcType=VARCHAR},
+      is_fix_repay = #{record.isFixRepay,jdbcType=CHAR},
+      repay_date = #{record.repayDate,jdbcType=VARCHAR},
+      contract_ids = #{record.contractIds,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfo">
+    update t_fund_loan_info
+    <set>
+      <if test="fundOrgCode != null">
+        fund_org_code = #{fundOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fundOrgName != null">
+        fund_org_name = #{fundOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        id_type = #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idNo != null">
+        id_no = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerMobile != null">
+        customer_mobile = #{customerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerLabel != null">
+        customer_label = #{customerLabel,jdbcType=CHAR},
+      </if>
+      <if test="loanAmt != null">
+        loan_amt = #{loanAmt,jdbcType=BIGINT},
+      </if>
+      <if test="loanPurpose != null">
+        loan_purpose = #{loanPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPeriod != null">
+        total_period = #{totalPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="rateType != null">
+        rate_type = #{rateType,jdbcType=CHAR},
+      </if>
+      <if test="yearDays != null">
+        year_days = #{yearDays,jdbcType=INTEGER},
+      </if>
+      <if test="rate != null">
+        rate = #{rate,jdbcType=REAL},
+      </if>
+      <if test="repayType != null">
+        repay_type = #{repayType,jdbcType=CHAR},
+      </if>
+      <if test="repayCycleType != null">
+        repay_cycle_type = #{repayCycleType,jdbcType=CHAR},
+      </if>
+      <if test="repayCycle != null">
+        repay_cycle = #{repayCycle,jdbcType=INTEGER},
+      </if>
+      <if test="duebillId != null">
+        duebill_id = #{duebillId,jdbcType=VARCHAR},
+      </if>
+      <if test="outDuebillId != null">
+        out_duebill_id = #{outDuebillId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizId != null">
+        biz_id = #{bizId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizStatus != null">
+        biz_status = #{bizStatus,jdbcType=CHAR},
+      </if>
+      <if test="errorDesc != null">
+        error_desc = #{errorDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lesseeId != null">
+        lessee_id = #{lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstRepayDate != null">
+        first_repay_date = #{firstRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAccBankCode != null">
+        loan_acc_bank_code = #{loanAccBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardNo != null">
+        loan_card_no = #{loanCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAccountName != null">
+        loan_account_name = #{loanAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccBankCode != null">
+        repay_acc_bank_code = #{repayAccBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        repay_card_no = #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccountName != null">
+        repay_account_name = #{repayAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="interestType != null">
+        interest_type = #{interestType,jdbcType=CHAR},
+      </if>
+      <if test="disburseId != null">
+        disburse_id = #{disburseId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="clearDate != null">
+        clear_date = #{clearDate,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackUrl != null">
+        callback_url = #{callbackUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isFixRepay != null">
+        is_fix_repay = #{isFixRepay,jdbcType=CHAR},
+      </if>
+      <if test="repayDate != null">
+        repay_date = #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contractIds != null">
+        contract_ids = #{contractIds,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where loan_id = #{loanId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfo">
+    update t_fund_loan_info
+    set fund_org_code = #{fundOrgCode,jdbcType=VARCHAR},
+      fund_org_name = #{fundOrgName,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=VARCHAR},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=CHAR},
+      id_no = #{idNo,jdbcType=VARCHAR},
+      customer_mobile = #{customerMobile,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      customer_label = #{customerLabel,jdbcType=CHAR},
+      loan_amt = #{loanAmt,jdbcType=BIGINT},
+      loan_purpose = #{loanPurpose,jdbcType=VARCHAR},
+      total_period = #{totalPeriod,jdbcType=INTEGER},
+      rate_type = #{rateType,jdbcType=CHAR},
+      year_days = #{yearDays,jdbcType=INTEGER},
+      rate = #{rate,jdbcType=REAL},
+      repay_type = #{repayType,jdbcType=CHAR},
+      repay_cycle_type = #{repayCycleType,jdbcType=CHAR},
+      repay_cycle = #{repayCycle,jdbcType=INTEGER},
+      duebill_id = #{duebillId,jdbcType=VARCHAR},
+      out_duebill_id = #{outDuebillId,jdbcType=VARCHAR},
+      biz_id = #{bizId,jdbcType=VARCHAR},
+      biz_status = #{bizStatus,jdbcType=CHAR},
+      error_desc = #{errorDesc,jdbcType=VARCHAR},
+      lessee_id = #{lesseeId,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      due_date = #{dueDate,jdbcType=VARCHAR},
+      first_repay_date = #{firstRepayDate,jdbcType=VARCHAR},
+      loan_acc_bank_code = #{loanAccBankCode,jdbcType=VARCHAR},
+      loan_card_no = #{loanCardNo,jdbcType=VARCHAR},
+      loan_account_name = #{loanAccountName,jdbcType=VARCHAR},
+      repay_acc_bank_code = #{repayAccBankCode,jdbcType=VARCHAR},
+      repay_card_no = #{repayCardNo,jdbcType=VARCHAR},
+      repay_account_name = #{repayAccountName,jdbcType=VARCHAR},
+      interest_type = #{interestType,jdbcType=CHAR},
+      disburse_id = #{disburseId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      clear_date = #{clearDate,jdbcType=VARCHAR},
+      callback_url = #{callbackUrl,jdbcType=VARCHAR},
+      is_fix_repay = #{isFixRepay,jdbcType=CHAR},
+      repay_date = #{repayDate,jdbcType=VARCHAR},
+      contract_ids = #{contractIds,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where loan_id = #{loanId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ligq.study.mybatis.demo.model.TFundLoanInfo">
+    update t_fund_loan_info
+    set fund_org_code = #{fundOrgCode,jdbcType=VARCHAR},
+      fund_org_name = #{fundOrgName,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=VARCHAR},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=CHAR},
+      id_no = #{idNo,jdbcType=VARCHAR},
+      customer_mobile = #{customerMobile,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      customer_label = #{customerLabel,jdbcType=CHAR},
+      loan_amt = #{loanAmt,jdbcType=BIGINT},
+      loan_purpose = #{loanPurpose,jdbcType=VARCHAR},
+      total_period = #{totalPeriod,jdbcType=INTEGER},
+      rate_type = #{rateType,jdbcType=CHAR},
+      year_days = #{yearDays,jdbcType=INTEGER},
+      rate = #{rate,jdbcType=REAL},
+      repay_type = #{repayType,jdbcType=CHAR},
+      repay_cycle_type = #{repayCycleType,jdbcType=CHAR},
+      repay_cycle = #{repayCycle,jdbcType=INTEGER},
+      duebill_id = #{duebillId,jdbcType=VARCHAR},
+      out_duebill_id = #{outDuebillId,jdbcType=VARCHAR},
+      biz_id = #{bizId,jdbcType=VARCHAR},
+      biz_status = #{bizStatus,jdbcType=CHAR},
+      error_desc = #{errorDesc,jdbcType=VARCHAR},
+      lessee_id = #{lesseeId,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      due_date = #{dueDate,jdbcType=VARCHAR},
+      first_repay_date = #{firstRepayDate,jdbcType=VARCHAR},
+      loan_acc_bank_code = #{loanAccBankCode,jdbcType=VARCHAR},
+      loan_card_no = #{loanCardNo,jdbcType=VARCHAR},
+      loan_account_name = #{loanAccountName,jdbcType=VARCHAR},
+      repay_acc_bank_code = #{repayAccBankCode,jdbcType=VARCHAR},
+      repay_card_no = #{repayCardNo,jdbcType=VARCHAR},
+      repay_account_name = #{repayAccountName,jdbcType=VARCHAR},
+      interest_type = #{interestType,jdbcType=CHAR},
+      disburse_id = #{disburseId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      clear_date = #{clearDate,jdbcType=VARCHAR},
+      callback_url = #{callbackUrl,jdbcType=VARCHAR},
+      is_fix_repay = #{isFixRepay,jdbcType=CHAR},
+      repay_date = #{repayDate,jdbcType=VARCHAR},
+      contract_ids = #{contractIds,jdbcType=VARCHAR}
+    where loan_id = #{loanId,jdbcType=VARCHAR}
+  </update>
+</mapper>

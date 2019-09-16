@@ -32,6 +32,8 @@ dependencies {
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisBootStarterVersion}")
     implementation("mysql:mysql-connector-java:${mysqlConnectorVersion}")
     implementation("com.alibaba:druid-spring-boot-starter:${druidBootStarterVersion}")
+    implementation("com.google.code.gson:gson:${gsonVersion}")
+    implementation("com.alibaba:fastjson:${fastjsonVersion}")
     implementation("org.projectlombok:lombok:${lombokVersion}")
     testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
     testImplementation('org.springframework.boot:spring-boot-starter-test')

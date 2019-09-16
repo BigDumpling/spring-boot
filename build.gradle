@@ -24,6 +24,12 @@ subprojects{
             mybatisGeneratorCoreVersion = '1.3.7'
             mybatisGeneratorPluginVersion = '1.3.5'
             tkMybatisMapperVersion = '4.1.5'
+            tkMybatisMapperBootStarterVersion = '2.1.5'
+            githubPagehelperVbootStarterVersion = '1.2.12'
+            druidBootStarterVersion = '1.1.18'
+            gsonVersion = '2.8.1'
+            fastjsonVersion = '1.2.60'
+
             lombokVersion = '1.18.2'
             junitVersion = '4.12'
         }

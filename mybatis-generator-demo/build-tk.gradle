@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenLocal()
+    }
+    dependencies {
+        classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
+    }
+}
+
+apply plugin: 'java-library'
+apply plugin: "com.arenagod.gradle.MybatisGenerator"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+configurations {
+    mybatisGenerator
+}
+
+mybatisGenerator {
+    verbose = false
+    configFile = "src/main/resources/autogen/generatorConfig.xml"
+
+    dependencies {
+        mybatisGenerator "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorCoreVersion}"
+        mybatisGenerator "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+        mybatisGenerator "tk.mybatis:mapper:${tkMybatisMapperVersion}"
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorCoreVersion}")
+    implementation("tk.mybatis:mapper:${tkMybatisMapperVersion}")
+//    compile("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypeHandlerJsrVersion}")
+    testCompile 'junit:junit:4.12'
+}

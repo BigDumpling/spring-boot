@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.spring.demo.mybatis.ProductMapper">
+   <insert id="insertProduct" useGeneratedKeys="true" keyProperty="id" parameterType="com.ligq.study.spring.demo.mybatis.Product">
+       INSERT INTO product (product_name, product_name_pinyin, product_type, sale_price, purchase_price)
+       VALUES (
+                #{productName,jdbcType=VARCHAR},
+                #{productNamePinYin,jdbcType=VARCHAR},
+                #{productType,jdbcType=VARCHAR},
+                #{salePrice,jdbcType=INTEGER},
+                #{purchasePrice,jdbcType=INTEGER}
+       );
+   </insert>
+</mapper>
