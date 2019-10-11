@@ -33,3 +33,6 @@ hs_err_pid*
 
 gradle
 */build
+/.gradle
+/.idea
+/*.log

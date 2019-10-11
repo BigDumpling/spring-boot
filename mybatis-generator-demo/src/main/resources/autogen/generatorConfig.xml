@@ -35,6 +35,15 @@
         <javaClientGenerator targetPackage="com.ligq.study.mybatis.demo.dao" targetProject="src/main/java"
                              type="XMLMAPPER"/>
         <!-- sql占位符，表示所有的表 -->
-        <table tableName="T_CREDIT_APPLY_FUND"/>
+<!--        <table tableName="t_deal_repay_apply"/>-->
+        <table tableName="t_product_info"/>
+<!--        <table tableName="T_CREDIT_APPLY_FUND"/>-->
+<!--        <table tableName="T_CREDIT_APPLY_NODE_INFO"/>-->
+<!--        <table tableName="t_customer_base"/>-->
+<!--        <table tableName="T_CUSTOMER_LEGAL"/>-->
+<!--        <table tableName="T_CUSTOMER_PERSON_DETAIL"/>-->
+<!--        <table tableName="T_CUSTOMER_LOGIN_INFO"/>-->
+
+<!--        <table tableName="t_customer_base"/>-->
     </context>
 </generatorConfiguration>

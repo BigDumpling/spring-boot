@@ -27,17 +27,17 @@ public class GsonExample {
 //        Collection<Integer> list2 = gson.fromJson(json, collectionType);
 //        log.info("list2 == {}", list2);
 
-//        Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new DateTimeSerializer()).create();
-//        LocalDateTime localDateTime = LocalDateTime.now();
-//        String json = gson.toJson(localDateTime);
-//        log.info("dateTime json == {}", json);
+        Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new DateTimeSerializer()).create();
+        LocalDateTime localDateTime = LocalDateTime.now();
+        String json = gson.toJson(localDateTime);
+        log.info("dateTime json == {}", json);
 
-        Gson gson = new GsonBuilder().create();
-        Money money = new Money("10000", "人民币");
-        String json = gson.toJson(money);
-        log.info("json == {}", json);
-
-        Money money1 = gson.fromJson(json, Money.class);
-        log.info("money1 == {}", money1);
+//        Gson gson = new GsonBuilder().create();
+//        Money money = new Money("10000", "人民币");
+//        String json = gson.toJson(money);
+//        log.info("json == {}", json);
+//
+//        Money money1 = gson.fromJson(json, Money.class);
+//        log.info("money1 == {}", money1);
     }
 }
