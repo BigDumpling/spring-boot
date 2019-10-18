@@ -1,21 +1,22 @@
 spring:
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true;characterEncoding=utf8
-    druid:
-      initial-size: 5
-      min-idle: 5
-      max-active: 20
-      max-wait: 60000
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-      validation-query: select 'X'
-      test-while-idle: true
-      test-on-borrow: false
-      test-on-return: false
-      pool-prepared-statements: true
-      max-pool-prepared-statement-per-connection-size: 20
-      filters: stat,wall,slf4j
+    url: jdbc:mysql://localhost:3306/world?zeroDateTimeBehavior=CONVERT_TO_NULL&useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+
+mybatis:
+  mapper-locations: classpath:mybatis/**/*.xml
+  type-aliases-package: com.ligq.study.mybatis.springbootmybatisdemo.model
+
+mapper:
+  mappers: com.ligq.study.mybatis.demo.mapper.MyMapper
+  not-empty: true
+  identity: MYSQL
+  use-simple-type: true
+  check-example-entity-class: true
+  safe-delete: true
+
+logging:
+  level: {com.ligq.study.mybatis.demo.service: info, com.ligq.study.mybatis.demo.dao: debug}
+
