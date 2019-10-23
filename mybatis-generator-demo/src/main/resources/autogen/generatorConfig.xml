@@ -38,13 +38,15 @@
 <!--        <table tableName="t_deal_repay_apply"/>-->
 <!--        <table tableName="t_product_info"/>-->
 <!--        <table tableName="T_CREDIT_APPLY_FUND"/>-->
-        <table tableName="T_CREDIT_APPLY_LOG"/>
+<!--        <table tableName="T_CREDIT_APPLY_LOG"/>-->
+<!--        <table tableName="t_opr_base_log"/>-->
 <!--        <table tableName="T_CREDIT_APPLY_NODE_INFO"/>-->
 <!--        <table tableName="t_customer_base"/>-->
 <!--        <table tableName="T_CUSTOMER_LEGAL"/>-->
 <!--        <table tableName="T_CUSTOMER_PERSON_DETAIL"/>-->
 <!--        <table tableName="T_CUSTOMER_LOGIN_INFO"/>-->
 
-<!--        <table tableName="t_customer_base"/>-->
+        <table tableName="t_credit_limit_log"/>
+        <table tableName="t_credit_limit_info"/>
     </context>
 </generatorConfiguration>
