@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.node.IntNode;
 import com.ligq.study.jackson.demo.model.Item;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class ItemDeserializer extends StdDeserializer<Item> {
     @Override
     public Item deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         JsonNode node = p.getCodec().readTree(p);
-        int id = node.get("id").asInt();
+        int id = (Integer) node.get("id").numberValue();
         String itemName = node.get("itemName").asText();
         int userId = (Integer) node.get("createdBy").numberValue();
 

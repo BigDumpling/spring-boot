@@ -12,11 +12,14 @@ public class JsonCustomExample {
     public static void main(String[] args) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-//        String json = "\"id\": 1,\"itemName\": \"theItem\",\"createdBy\": 2";
+        String json = "{\"id\": 1,\"itemName\": \"theItem\",\"createdBy\": 2}";
 //        Item item = objectMapper.readValue(json, Item.class);
+//        log.info("item == {}", item);
 
         SimpleModule module = new SimpleModule();
         module.addDeserializer(Item.class, new ItemDeserializer());
         objectMapper.registerModule(module);
+        Item item2 = objectMapper.readValue(json, Item.class);
+        log.info("item2 == {}", item2);
     }
 }
