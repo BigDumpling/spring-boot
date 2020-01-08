@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TCustomerSettleaccInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfo">
+    <id column="SEQ_ID" jdbcType="VARCHAR" property="seqId" />
+    <result column="LESSEE_ID" jdbcType="VARCHAR" property="lesseeId" />
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="BANK_CODE" jdbcType="VARCHAR" property="bankCode" />
+    <result column="BANK_NAME" jdbcType="VARCHAR" property="bankName" />
+    <result column="PROVINCE_CODE" jdbcType="VARCHAR" property="provinceCode" />
+    <result column="PROVINCE_NAME" jdbcType="VARCHAR" property="provinceName" />
+    <result column="CITY_CODE" jdbcType="VARCHAR" property="cityCode" />
+    <result column="CITY_NAME" jdbcType="VARCHAR" property="cityName" />
+    <result column="BRANCH_NAME" jdbcType="VARCHAR" property="branchName" />
+    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="CREATE_TIME" jdbcType="BIGINT" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="BIGINT" property="updateTime" />
+    <result column="ACC_TYPE" jdbcType="VARCHAR" property="accType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SEQ_ID, LESSEE_ID, CUSTOMER_ID, BANK_CODE, BANK_NAME, PROVINCE_CODE, PROVINCE_NAME, 
+    CITY_CODE, CITY_NAME, BRANCH_NAME, ACCOUNT_NO, ACCOUNT_NAME, STATUS, REMARK, CREATE_TIME, 
+    UPDATE_TIME, ACC_TYPE
+  </sql>
+  <select id="selectByExample" parameterType="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_customer_settleacc_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_customer_settleacc_info
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_customer_settleacc_info
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfoExample">
+    delete from t_customer_settleacc_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfo">
+    insert into t_customer_settleacc_info (SEQ_ID, LESSEE_ID, CUSTOMER_ID, 
+      BANK_CODE, BANK_NAME, PROVINCE_CODE, 
+      PROVINCE_NAME, CITY_CODE, CITY_NAME, 
+      BRANCH_NAME, ACCOUNT_NO, ACCOUNT_NAME, 
+      STATUS, REMARK, CREATE_TIME, 
+      UPDATE_TIME, ACC_TYPE)
+    values (#{seqId,jdbcType=VARCHAR}, #{lesseeId,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, 
+      #{bankCode,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, #{provinceCode,jdbcType=VARCHAR}, 
+      #{provinceName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
+      #{branchName,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{accType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfo">
+    insert into t_customer_settleacc_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="lesseeId != null">
+        LESSEE_ID,
+      </if>
+      <if test="customerId != null">
+        CUSTOMER_ID,
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE,
+      </if>
+      <if test="bankName != null">
+        BANK_NAME,
+      </if>
+      <if test="provinceCode != null">
+        PROVINCE_CODE,
+      </if>
+      <if test="provinceName != null">
+        PROVINCE_NAME,
+      </if>
+      <if test="cityCode != null">
+        CITY_CODE,
+      </if>
+      <if test="cityName != null">
+        CITY_NAME,
+      </if>
+      <if test="branchName != null">
+        BRANCH_NAME,
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO,
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="accType != null">
+        ACC_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="lesseeId != null">
+        #{lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null">
+        #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null">
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="branchName != null">
+        #{branchName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="accType != null">
+        #{accType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfoExample" resultType="java.lang.Long">
+    select count(*) from t_customer_settleacc_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_customer_settleacc_info
+    <set>
+      <if test="record.seqId != null">
+        SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lesseeId != null">
+        LESSEE_ID = #{record.lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerId != null">
+        CUSTOMER_ID = #{record.customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCode != null">
+        BANK_CODE = #{record.bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankName != null">
+        BANK_NAME = #{record.bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceCode != null">
+        PROVINCE_CODE = #{record.provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceName != null">
+        PROVINCE_NAME = #{record.provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityCode != null">
+        CITY_CODE = #{record.cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityName != null">
+        CITY_NAME = #{record.cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.branchName != null">
+        BRANCH_NAME = #{record.branchName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountNo != null">
+        ACCOUNT_NO = #{record.accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountName != null">
+        ACCOUNT_NAME = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.accType != null">
+        ACC_TYPE = #{record.accType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_customer_settleacc_info
+    set SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+      LESSEE_ID = #{record.lesseeId,jdbcType=VARCHAR},
+      CUSTOMER_ID = #{record.customerId,jdbcType=VARCHAR},
+      BANK_CODE = #{record.bankCode,jdbcType=VARCHAR},
+      BANK_NAME = #{record.bankName,jdbcType=VARCHAR},
+      PROVINCE_CODE = #{record.provinceCode,jdbcType=VARCHAR},
+      PROVINCE_NAME = #{record.provinceName,jdbcType=VARCHAR},
+      CITY_CODE = #{record.cityCode,jdbcType=VARCHAR},
+      CITY_NAME = #{record.cityName,jdbcType=VARCHAR},
+      BRANCH_NAME = #{record.branchName,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{record.accountNo,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{record.accountName,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=CHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=BIGINT},
+      UPDATE_TIME = #{record.updateTime,jdbcType=BIGINT},
+      ACC_TYPE = #{record.accType,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfo">
+    update t_customer_settleacc_info
+    <set>
+      <if test="lesseeId != null">
+        LESSEE_ID = #{lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null">
+        PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null">
+        PROVINCE_NAME = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="branchName != null">
+        BRANCH_NAME = #{branchName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="accType != null">
+        ACC_TYPE = #{accType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ligq.study.mybatis.demo.model.TCustomerSettleaccInfo">
+    update t_customer_settleacc_info
+    set LESSEE_ID = #{lesseeId,jdbcType=VARCHAR},
+      CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
+      BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR},
+      PROVINCE_NAME = #{provinceName,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      BRANCH_NAME = #{branchName,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=BIGINT},
+      UPDATE_TIME = #{updateTime,jdbcType=BIGINT},
+      ACC_TYPE = #{accType,jdbcType=VARCHAR}
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </update>
+</mapper>

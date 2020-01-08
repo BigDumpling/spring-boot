@@ -14,11 +14,11 @@
             <property name="javaFileEncoding" value="utf-8"/>
         </commentGenerator>
 
-<!--        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
-<!--                        connectionURL="jdbc:mysql://10.50.17.10:3306/saas?useUnicode=true;characterEncoding=utf8"-->
-<!--                        userId="saasopr"-->
-<!--                        password="Only4SaasApp!">-->
-<!--        </jdbcConnection>-->
+        <!--        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
+        <!--                        connectionURL="jdbc:mysql://10.50.17.10:3306/saas?useUnicode=true;characterEncoding=utf8"-->
+        <!--                        userId="saasopr"-->
+        <!--                        password="Only4SaasApp!">-->
+        <!--        </jdbcConnection>-->
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://10.50.17.10:3306/stdcmp?useUnicode=true;characterEncoding=utf8"
@@ -35,18 +35,30 @@
         <javaClientGenerator targetPackage="com.ligq.study.mybatis.demo.dao" targetProject="src/main/java"
                              type="XMLMAPPER"/>
         <!-- sql占位符，表示所有的表 -->
-<!--        <table tableName="t_deal_repay_apply"/>-->
-<!--        <table tableName="t_product_info"/>-->
-<!--        <table tableName="T_CREDIT_APPLY_FUND"/>-->
-<!--        <table tableName="T_CREDIT_APPLY_LOG"/>-->
-<!--        <table tableName="t_opr_base_log"/>-->
-<!--        <table tableName="T_CREDIT_APPLY_NODE_INFO"/>-->
-<!--        <table tableName="t_customer_base"/>-->
-<!--        <table tableName="T_CUSTOMER_LEGAL"/>-->
-<!--        <table tableName="T_CUSTOMER_PERSON_DETAIL"/>-->
-<!--        <table tableName="T_CUSTOMER_LOGIN_INFO"/>-->
+        <!--        <table tableName="t_deal_repay_apply"/>-->
+<!--                <table tableName="t_product_info"/>-->
+<!--                <table tableName="t_credit_reject_code"/>-->
+        <!--        <table tableName="T_CREDIT_APPLY_FUND"/>-->
+<!--                <table tableName="lacc_duebill_info"/>-->
+<!--                <table tableName="lacc_repay_record"/>-->
+<!--                <table tableName="lacc_repay_plan"/>-->
+<!--                <table tableName="lacc_repay_plan_his"/>-->
+<!--                <table tableName="t_credit_limit_log"/>-->
+        <!--        <table tableName="t_opr_base_log"/>-->
+        <!--        <table tableName="T_CREDIT_APPLY_NODE_INFO"/>-->
+        <!--        <table tableName="t_customer_base"/>-->
+        <!--        <table tableName="T_CUSTOMER_LEGAL"/>-->
+        <!--        <table tableName="T_CUSTOMER_PERSON_DETAIL"/>-->
+        <!--        <table tableName="T_CUSTOMER_LOGIN_INFO"/>-->
 
-        <table tableName="t_credit_limit_log"/>
-        <table tableName="t_credit_limit_info"/>
+<!--        <table tableName="t_property_info"/>-->
+<!--        <table tableName="t_credit_limit_info"/>-->
+<!--        <table tableName="t_deal_cusdis_info"/>-->
+<!--        <table tableName="t_customer_settleacc_info"/>-->
+<!--        <table tableName="t_base_bank_info"/>-->
+<!--        <table tableName="t_base_area_city"/>-->
+<!--        <table tableName="t_customer_card_info"/>-->
+<!--        <table tableName="t_product_info"/>-->
+        <table tableName="t_credit_apply_log"></table>
     </context>
 </generatorConfiguration>

@@ -18,4 +18,5 @@ include 'mybatis-generator-demo'
 include 'mybatis-demo'
 include 'design-patterns-demo'
 include 'jackson-demo'
+include 'nio-demo'
 

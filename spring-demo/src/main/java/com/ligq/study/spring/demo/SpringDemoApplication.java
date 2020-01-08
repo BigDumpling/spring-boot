@@ -1,25 +1,9 @@
 package com.ligq.study.spring.demo;
 
-import com.ligq.study.spring.demo.config.BeanPostProcessorTest;
-import com.ligq.study.spring.demo.control.HelloWorldController;
-import com.ligq.study.spring.demo.model.Person;
-import com.ligq.study.spring.demo.service.HelloWorldServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cglib.core.Local;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
-
-import java.util.Locale;
 
 @Slf4j
 @EnableAspectJAutoProxy

@@ -4,3 +4,8 @@ server:
 spring:
   application:
     name: spring-demo
+  profiles:
+    active: dev
+
+process:
+  name: spring-demo2

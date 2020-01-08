@@ -6,9 +6,9 @@ import com.ligq.study.spring.demo.model.People;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.PropertyEditorRegistrar;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,11 +19,14 @@ import java.util.Map;
 @RequestMapping
 public class HelloWorldController {
 
+    @Value("${process.name}")
+    private String processName;
     @Autowired
     private Map<String, PropertyEditorRegistrar> propertyEditorRegistrarMap;
 
     @GetMapping("/world")
     public String hello() {
+        log.info("processName == {}", processName);
         return "Hello World";
     }
 
@@ -31,7 +34,7 @@ public class HelloWorldController {
     public void people(@Valid @RequestBody People people, BindingResult result) {
         log.info("people == {}", people);
         log.info("result == {}", result);
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             log.error("errors == {}", result.getTarget());
             throw new RuntimeException(result.getFieldError().getField() + ": " + result.getFieldError().getCode());
         }
@@ -40,7 +43,7 @@ public class HelloWorldController {
     }
 
     @GetMapping(value = "/property", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void property(ExoticType type){
+    public void property(ExoticType type) {
         log.info("--------HelloWorldController.property()------------, type == {}", type);
         log.info("--------HelloWorldController.property()------------, type.name == {}", type.getName());
         propertyEditorRegistrarMap.forEach((f, m) -> {
@@ -50,7 +53,7 @@ public class HelloWorldController {
     }
 
     @GetMapping(value = "/property2", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void property2(DependsOnExoticType type){
+    public void property2(DependsOnExoticType type) {
         log.info("--------HelloWorldController.property2()------------, type == {}", type);
     }
 //

@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TProductInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TProductInfo">
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="PRODUCT_CODE" jdbcType="VARCHAR" property="productCode" />
+    <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="PRODUCT_TYPE" jdbcType="CHAR" property="productType" />
+    <result column="STANDARD_PRICE_RATE" jdbcType="REAL" property="standardPriceRate" />
+    <result column="PLATFONT_PRICE_RATE" jdbcType="REAL" property="platfontPriceRate" />
+    <result column="FLOOR_PRICE_RATE" jdbcType="REAL" property="floorPriceRate" />
+    <result column="YEAR_INTEREST_DAYS" jdbcType="INTEGER" property="yearInterestDays" />
+    <result column="REPAY_TYPE" jdbcType="VARCHAR" property="repayType" />
+    <result column="INTEREST_TYPE" jdbcType="CHAR" property="interestType" />
+    <result column="LOAN_TERM" jdbcType="VARCHAR" property="loanTerm" />
+    <result column="REPAY_CYCLE_TYPE" jdbcType="CHAR" property="repayCycleType" />
+    <result column="REPAY_CYCLE_NUM" jdbcType="INTEGER" property="repayCycleNum" />
+    <result column="REPAY_DAY_TYPE" jdbcType="CHAR" property="repayDayType" />
+    <result column="RATE_TYPE" jdbcType="CHAR" property="rateType" />
+    <result column="REPAY_DAY" jdbcType="VARCHAR" property="repayDay" />
+    <result column="TOTAL_LIMIT" jdbcType="BIGINT" property="totalLimit" />
+    <result column="PLATFONT_LIMIT" jdbcType="BIGINT" property="platfontLimit" />
+    <result column="FLOOR_LIMIT" jdbcType="BIGINT" property="floorLimit" />
+    <result column="GUARANTY_TYPE" jdbcType="CHAR" property="guarantyType" />
+    <result column="IS_LOOP" jdbcType="CHAR" property="isLoop" />
+    <result column="IS_REPAY" jdbcType="CHAR" property="isRepay" />
+    <result column="IS_FIX_PAY" jdbcType="CHAR" property="isFixPay" />
+    <result column="REPAY_RESOURCE_TYPE" jdbcType="CHAR" property="repayResourceType" />
+    <result column="PENALTY_INTEREST_RATE" jdbcType="REAL" property="penaltyInterestRate" />
+    <result column="GRACE_PERIOD" jdbcType="INTEGER" property="gracePeriod" />
+    <result column="ADVANCE_END_PERIOD" jdbcType="INTEGER" property="advanceEndPeriod" />
+    <result column="CUST_LABLE" jdbcType="VARCHAR" property="custLable" />
+    <result column="MARKET_LABEL" jdbcType="VARCHAR" property="marketLabel" />
+    <result column="PRIORITY" jdbcType="CHAR" property="priority" />
+    <result column="DELAY_DAYS" jdbcType="INTEGER" property="delayDays" />
+    <result column="LOAN_START_TYPE" jdbcType="CHAR" property="loanStartType" />
+    <result column="CREATE_TIME" jdbcType="BIGINT" property="createTime" />
+    <result column="CREATE_USER" jdbcType="VARCHAR" property="createUser" />
+    <result column="UPDATE_TIME" jdbcType="BIGINT" property="updateTime" />
+    <result column="UPDATE_USER" jdbcType="VARCHAR" property="updateUser" />
+    <result column="LESSEE_ID" jdbcType="VARCHAR" property="lesseeId" />
+    <result column="SERVICE_RATE" jdbcType="REAL" property="serviceRate" />
+    <result column="part_repay_flag" jdbcType="CHAR" property="partRepayFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PRODUCT_ID, PRODUCT_CODE, PRODUCT_NAME, STATUS, PRODUCT_TYPE, STANDARD_PRICE_RATE, 
+    PLATFONT_PRICE_RATE, FLOOR_PRICE_RATE, YEAR_INTEREST_DAYS, REPAY_TYPE, INTEREST_TYPE, 
+    LOAN_TERM, REPAY_CYCLE_TYPE, REPAY_CYCLE_NUM, REPAY_DAY_TYPE, RATE_TYPE, REPAY_DAY, 
+    TOTAL_LIMIT, PLATFONT_LIMIT, FLOOR_LIMIT, GUARANTY_TYPE, IS_LOOP, IS_REPAY, IS_FIX_PAY, 
+    REPAY_RESOURCE_TYPE, PENALTY_INTEREST_RATE, GRACE_PERIOD, ADVANCE_END_PERIOD, CUST_LABLE, 
+    MARKET_LABEL, PRIORITY, DELAY_DAYS, LOAN_START_TYPE, CREATE_TIME, CREATE_USER, UPDATE_TIME, 
+    UPDATE_USER, LESSEE_ID, SERVICE_RATE, part_repay_flag
+  </sql>
+  <select id="selectByExample" parameterType="com.ligq.study.mybatis.demo.model.TProductInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_product_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_product_info
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_product_info
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ligq.study.mybatis.demo.model.TProductInfoExample">
+    delete from t_product_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ligq.study.mybatis.demo.model.TProductInfo">
+    insert into t_product_info (PRODUCT_ID, PRODUCT_CODE, PRODUCT_NAME, 
+      STATUS, PRODUCT_TYPE, STANDARD_PRICE_RATE, 
+      PLATFONT_PRICE_RATE, FLOOR_PRICE_RATE, YEAR_INTEREST_DAYS, 
+      REPAY_TYPE, INTEREST_TYPE, LOAN_TERM, 
+      REPAY_CYCLE_TYPE, REPAY_CYCLE_NUM, REPAY_DAY_TYPE, 
+      RATE_TYPE, REPAY_DAY, TOTAL_LIMIT, 
+      PLATFONT_LIMIT, FLOOR_LIMIT, GUARANTY_TYPE, 
+      IS_LOOP, IS_REPAY, IS_FIX_PAY, REPAY_RESOURCE_TYPE, 
+      PENALTY_INTEREST_RATE, GRACE_PERIOD, ADVANCE_END_PERIOD, 
+      CUST_LABLE, MARKET_LABEL, PRIORITY, 
+      DELAY_DAYS, LOAN_START_TYPE, CREATE_TIME, 
+      CREATE_USER, UPDATE_TIME, UPDATE_USER, 
+      LESSEE_ID, SERVICE_RATE, part_repay_flag
+      )
+    values (#{productId,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{productType,jdbcType=CHAR}, #{standardPriceRate,jdbcType=REAL}, 
+      #{platfontPriceRate,jdbcType=REAL}, #{floorPriceRate,jdbcType=REAL}, #{yearInterestDays,jdbcType=INTEGER}, 
+      #{repayType,jdbcType=VARCHAR}, #{interestType,jdbcType=CHAR}, #{loanTerm,jdbcType=VARCHAR}, 
+      #{repayCycleType,jdbcType=CHAR}, #{repayCycleNum,jdbcType=INTEGER}, #{repayDayType,jdbcType=CHAR}, 
+      #{rateType,jdbcType=CHAR}, #{repayDay,jdbcType=VARCHAR}, #{totalLimit,jdbcType=BIGINT}, 
+      #{platfontLimit,jdbcType=BIGINT}, #{floorLimit,jdbcType=BIGINT}, #{guarantyType,jdbcType=CHAR}, 
+      #{isLoop,jdbcType=CHAR}, #{isRepay,jdbcType=CHAR}, #{isFixPay,jdbcType=CHAR}, #{repayResourceType,jdbcType=CHAR}, 
+      #{penaltyInterestRate,jdbcType=REAL}, #{gracePeriod,jdbcType=INTEGER}, #{advanceEndPeriod,jdbcType=INTEGER}, 
+      #{custLable,jdbcType=VARCHAR}, #{marketLabel,jdbcType=VARCHAR}, #{priority,jdbcType=CHAR}, 
+      #{delayDays,jdbcType=INTEGER}, #{loanStartType,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=BIGINT}, #{updateUser,jdbcType=VARCHAR}, 
+      #{lesseeId,jdbcType=VARCHAR}, #{serviceRate,jdbcType=REAL}, #{partRepayFlag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ligq.study.mybatis.demo.model.TProductInfo">
+    insert into t_product_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="productCode != null">
+        PRODUCT_CODE,
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="productType != null">
+        PRODUCT_TYPE,
+      </if>
+      <if test="standardPriceRate != null">
+        STANDARD_PRICE_RATE,
+      </if>
+      <if test="platfontPriceRate != null">
+        PLATFONT_PRICE_RATE,
+      </if>
+      <if test="floorPriceRate != null">
+        FLOOR_PRICE_RATE,
+      </if>
+      <if test="yearInterestDays != null">
+        YEAR_INTEREST_DAYS,
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE,
+      </if>
+      <if test="interestType != null">
+        INTEREST_TYPE,
+      </if>
+      <if test="loanTerm != null">
+        LOAN_TERM,
+      </if>
+      <if test="repayCycleType != null">
+        REPAY_CYCLE_TYPE,
+      </if>
+      <if test="repayCycleNum != null">
+        REPAY_CYCLE_NUM,
+      </if>
+      <if test="repayDayType != null">
+        REPAY_DAY_TYPE,
+      </if>
+      <if test="rateType != null">
+        RATE_TYPE,
+      </if>
+      <if test="repayDay != null">
+        REPAY_DAY,
+      </if>
+      <if test="totalLimit != null">
+        TOTAL_LIMIT,
+      </if>
+      <if test="platfontLimit != null">
+        PLATFONT_LIMIT,
+      </if>
+      <if test="floorLimit != null">
+        FLOOR_LIMIT,
+      </if>
+      <if test="guarantyType != null">
+        GUARANTY_TYPE,
+      </if>
+      <if test="isLoop != null">
+        IS_LOOP,
+      </if>
+      <if test="isRepay != null">
+        IS_REPAY,
+      </if>
+      <if test="isFixPay != null">
+        IS_FIX_PAY,
+      </if>
+      <if test="repayResourceType != null">
+        REPAY_RESOURCE_TYPE,
+      </if>
+      <if test="penaltyInterestRate != null">
+        PENALTY_INTEREST_RATE,
+      </if>
+      <if test="gracePeriod != null">
+        GRACE_PERIOD,
+      </if>
+      <if test="advanceEndPeriod != null">
+        ADVANCE_END_PERIOD,
+      </if>
+      <if test="custLable != null">
+        CUST_LABLE,
+      </if>
+      <if test="marketLabel != null">
+        MARKET_LABEL,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+      <if test="delayDays != null">
+        DELAY_DAYS,
+      </if>
+      <if test="loanStartType != null">
+        LOAN_START_TYPE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="lesseeId != null">
+        LESSEE_ID,
+      </if>
+      <if test="serviceRate != null">
+        SERVICE_RATE,
+      </if>
+      <if test="partRepayFlag != null">
+        part_repay_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=CHAR},
+      </if>
+      <if test="standardPriceRate != null">
+        #{standardPriceRate,jdbcType=REAL},
+      </if>
+      <if test="platfontPriceRate != null">
+        #{platfontPriceRate,jdbcType=REAL},
+      </if>
+      <if test="floorPriceRate != null">
+        #{floorPriceRate,jdbcType=REAL},
+      </if>
+      <if test="yearInterestDays != null">
+        #{yearInterestDays,jdbcType=INTEGER},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="interestType != null">
+        #{interestType,jdbcType=CHAR},
+      </if>
+      <if test="loanTerm != null">
+        #{loanTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCycleType != null">
+        #{repayCycleType,jdbcType=CHAR},
+      </if>
+      <if test="repayCycleNum != null">
+        #{repayCycleNum,jdbcType=INTEGER},
+      </if>
+      <if test="repayDayType != null">
+        #{repayDayType,jdbcType=CHAR},
+      </if>
+      <if test="rateType != null">
+        #{rateType,jdbcType=CHAR},
+      </if>
+      <if test="repayDay != null">
+        #{repayDay,jdbcType=VARCHAR},
+      </if>
+      <if test="totalLimit != null">
+        #{totalLimit,jdbcType=BIGINT},
+      </if>
+      <if test="platfontLimit != null">
+        #{platfontLimit,jdbcType=BIGINT},
+      </if>
+      <if test="floorLimit != null">
+        #{floorLimit,jdbcType=BIGINT},
+      </if>
+      <if test="guarantyType != null">
+        #{guarantyType,jdbcType=CHAR},
+      </if>
+      <if test="isLoop != null">
+        #{isLoop,jdbcType=CHAR},
+      </if>
+      <if test="isRepay != null">
+        #{isRepay,jdbcType=CHAR},
+      </if>
+      <if test="isFixPay != null">
+        #{isFixPay,jdbcType=CHAR},
+      </if>
+      <if test="repayResourceType != null">
+        #{repayResourceType,jdbcType=CHAR},
+      </if>
+      <if test="penaltyInterestRate != null">
+        #{penaltyInterestRate,jdbcType=REAL},
+      </if>
+      <if test="gracePeriod != null">
+        #{gracePeriod,jdbcType=INTEGER},
+      </if>
+      <if test="advanceEndPeriod != null">
+        #{advanceEndPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="custLable != null">
+        #{custLable,jdbcType=VARCHAR},
+      </if>
+      <if test="marketLabel != null">
+        #{marketLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=CHAR},
+      </if>
+      <if test="delayDays != null">
+        #{delayDays,jdbcType=INTEGER},
+      </if>
+      <if test="loanStartType != null">
+        #{loanStartType,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lesseeId != null">
+        #{lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceRate != null">
+        #{serviceRate,jdbcType=REAL},
+      </if>
+      <if test="partRepayFlag != null">
+        #{partRepayFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ligq.study.mybatis.demo.model.TProductInfoExample" resultType="java.lang.Long">
+    select count(*) from t_product_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_product_info
+    <set>
+      <if test="record.productId != null">
+        PRODUCT_ID = #{record.productId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productCode != null">
+        PRODUCT_CODE = #{record.productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productName != null">
+        PRODUCT_NAME = #{record.productName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.productType != null">
+        PRODUCT_TYPE = #{record.productType,jdbcType=CHAR},
+      </if>
+      <if test="record.standardPriceRate != null">
+        STANDARD_PRICE_RATE = #{record.standardPriceRate,jdbcType=REAL},
+      </if>
+      <if test="record.platfontPriceRate != null">
+        PLATFONT_PRICE_RATE = #{record.platfontPriceRate,jdbcType=REAL},
+      </if>
+      <if test="record.floorPriceRate != null">
+        FLOOR_PRICE_RATE = #{record.floorPriceRate,jdbcType=REAL},
+      </if>
+      <if test="record.yearInterestDays != null">
+        YEAR_INTEREST_DAYS = #{record.yearInterestDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.repayType != null">
+        REPAY_TYPE = #{record.repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interestType != null">
+        INTEREST_TYPE = #{record.interestType,jdbcType=CHAR},
+      </if>
+      <if test="record.loanTerm != null">
+        LOAN_TERM = #{record.loanTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repayCycleType != null">
+        REPAY_CYCLE_TYPE = #{record.repayCycleType,jdbcType=CHAR},
+      </if>
+      <if test="record.repayCycleNum != null">
+        REPAY_CYCLE_NUM = #{record.repayCycleNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.repayDayType != null">
+        REPAY_DAY_TYPE = #{record.repayDayType,jdbcType=CHAR},
+      </if>
+      <if test="record.rateType != null">
+        RATE_TYPE = #{record.rateType,jdbcType=CHAR},
+      </if>
+      <if test="record.repayDay != null">
+        REPAY_DAY = #{record.repayDay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalLimit != null">
+        TOTAL_LIMIT = #{record.totalLimit,jdbcType=BIGINT},
+      </if>
+      <if test="record.platfontLimit != null">
+        PLATFONT_LIMIT = #{record.platfontLimit,jdbcType=BIGINT},
+      </if>
+      <if test="record.floorLimit != null">
+        FLOOR_LIMIT = #{record.floorLimit,jdbcType=BIGINT},
+      </if>
+      <if test="record.guarantyType != null">
+        GUARANTY_TYPE = #{record.guarantyType,jdbcType=CHAR},
+      </if>
+      <if test="record.isLoop != null">
+        IS_LOOP = #{record.isLoop,jdbcType=CHAR},
+      </if>
+      <if test="record.isRepay != null">
+        IS_REPAY = #{record.isRepay,jdbcType=CHAR},
+      </if>
+      <if test="record.isFixPay != null">
+        IS_FIX_PAY = #{record.isFixPay,jdbcType=CHAR},
+      </if>
+      <if test="record.repayResourceType != null">
+        REPAY_RESOURCE_TYPE = #{record.repayResourceType,jdbcType=CHAR},
+      </if>
+      <if test="record.penaltyInterestRate != null">
+        PENALTY_INTEREST_RATE = #{record.penaltyInterestRate,jdbcType=REAL},
+      </if>
+      <if test="record.gracePeriod != null">
+        GRACE_PERIOD = #{record.gracePeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.advanceEndPeriod != null">
+        ADVANCE_END_PERIOD = #{record.advanceEndPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.custLable != null">
+        CUST_LABLE = #{record.custLable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marketLabel != null">
+        MARKET_LABEL = #{record.marketLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priority != null">
+        PRIORITY = #{record.priority,jdbcType=CHAR},
+      </if>
+      <if test="record.delayDays != null">
+        DELAY_DAYS = #{record.delayDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.loanStartType != null">
+        LOAN_START_TYPE = #{record.loanStartType,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lesseeId != null">
+        LESSEE_ID = #{record.lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceRate != null">
+        SERVICE_RATE = #{record.serviceRate,jdbcType=REAL},
+      </if>
+      <if test="record.partRepayFlag != null">
+        part_repay_flag = #{record.partRepayFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_product_info
+    set PRODUCT_ID = #{record.productId,jdbcType=VARCHAR},
+      PRODUCT_CODE = #{record.productCode,jdbcType=VARCHAR},
+      PRODUCT_NAME = #{record.productName,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=CHAR},
+      PRODUCT_TYPE = #{record.productType,jdbcType=CHAR},
+      STANDARD_PRICE_RATE = #{record.standardPriceRate,jdbcType=REAL},
+      PLATFONT_PRICE_RATE = #{record.platfontPriceRate,jdbcType=REAL},
+      FLOOR_PRICE_RATE = #{record.floorPriceRate,jdbcType=REAL},
+      YEAR_INTEREST_DAYS = #{record.yearInterestDays,jdbcType=INTEGER},
+      REPAY_TYPE = #{record.repayType,jdbcType=VARCHAR},
+      INTEREST_TYPE = #{record.interestType,jdbcType=CHAR},
+      LOAN_TERM = #{record.loanTerm,jdbcType=VARCHAR},
+      REPAY_CYCLE_TYPE = #{record.repayCycleType,jdbcType=CHAR},
+      REPAY_CYCLE_NUM = #{record.repayCycleNum,jdbcType=INTEGER},
+      REPAY_DAY_TYPE = #{record.repayDayType,jdbcType=CHAR},
+      RATE_TYPE = #{record.rateType,jdbcType=CHAR},
+      REPAY_DAY = #{record.repayDay,jdbcType=VARCHAR},
+      TOTAL_LIMIT = #{record.totalLimit,jdbcType=BIGINT},
+      PLATFONT_LIMIT = #{record.platfontLimit,jdbcType=BIGINT},
+      FLOOR_LIMIT = #{record.floorLimit,jdbcType=BIGINT},
+      GUARANTY_TYPE = #{record.guarantyType,jdbcType=CHAR},
+      IS_LOOP = #{record.isLoop,jdbcType=CHAR},
+      IS_REPAY = #{record.isRepay,jdbcType=CHAR},
+      IS_FIX_PAY = #{record.isFixPay,jdbcType=CHAR},
+      REPAY_RESOURCE_TYPE = #{record.repayResourceType,jdbcType=CHAR},
+      PENALTY_INTEREST_RATE = #{record.penaltyInterestRate,jdbcType=REAL},
+      GRACE_PERIOD = #{record.gracePeriod,jdbcType=INTEGER},
+      ADVANCE_END_PERIOD = #{record.advanceEndPeriod,jdbcType=INTEGER},
+      CUST_LABLE = #{record.custLable,jdbcType=VARCHAR},
+      MARKET_LABEL = #{record.marketLabel,jdbcType=VARCHAR},
+      PRIORITY = #{record.priority,jdbcType=CHAR},
+      DELAY_DAYS = #{record.delayDays,jdbcType=INTEGER},
+      LOAN_START_TYPE = #{record.loanStartType,jdbcType=CHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=BIGINT},
+      CREATE_USER = #{record.createUser,jdbcType=VARCHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=BIGINT},
+      UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
+      LESSEE_ID = #{record.lesseeId,jdbcType=VARCHAR},
+      SERVICE_RATE = #{record.serviceRate,jdbcType=REAL},
+      part_repay_flag = #{record.partRepayFlag,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ligq.study.mybatis.demo.model.TProductInfo">
+    update t_product_info
+    <set>
+      <if test="productCode != null">
+        PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="productType != null">
+        PRODUCT_TYPE = #{productType,jdbcType=CHAR},
+      </if>
+      <if test="standardPriceRate != null">
+        STANDARD_PRICE_RATE = #{standardPriceRate,jdbcType=REAL},
+      </if>
+      <if test="platfontPriceRate != null">
+        PLATFONT_PRICE_RATE = #{platfontPriceRate,jdbcType=REAL},
+      </if>
+      <if test="floorPriceRate != null">
+        FLOOR_PRICE_RATE = #{floorPriceRate,jdbcType=REAL},
+      </if>
+      <if test="yearInterestDays != null">
+        YEAR_INTEREST_DAYS = #{yearInterestDays,jdbcType=INTEGER},
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="interestType != null">
+        INTEREST_TYPE = #{interestType,jdbcType=CHAR},
+      </if>
+      <if test="loanTerm != null">
+        LOAN_TERM = #{loanTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCycleType != null">
+        REPAY_CYCLE_TYPE = #{repayCycleType,jdbcType=CHAR},
+      </if>
+      <if test="repayCycleNum != null">
+        REPAY_CYCLE_NUM = #{repayCycleNum,jdbcType=INTEGER},
+      </if>
+      <if test="repayDayType != null">
+        REPAY_DAY_TYPE = #{repayDayType,jdbcType=CHAR},
+      </if>
+      <if test="rateType != null">
+        RATE_TYPE = #{rateType,jdbcType=CHAR},
+      </if>
+      <if test="repayDay != null">
+        REPAY_DAY = #{repayDay,jdbcType=VARCHAR},
+      </if>
+      <if test="totalLimit != null">
+        TOTAL_LIMIT = #{totalLimit,jdbcType=BIGINT},
+      </if>
+      <if test="platfontLimit != null">
+        PLATFONT_LIMIT = #{platfontLimit,jdbcType=BIGINT},
+      </if>
+      <if test="floorLimit != null">
+        FLOOR_LIMIT = #{floorLimit,jdbcType=BIGINT},
+      </if>
+      <if test="guarantyType != null">
+        GUARANTY_TYPE = #{guarantyType,jdbcType=CHAR},
+      </if>
+      <if test="isLoop != null">
+        IS_LOOP = #{isLoop,jdbcType=CHAR},
+      </if>
+      <if test="isRepay != null">
+        IS_REPAY = #{isRepay,jdbcType=CHAR},
+      </if>
+      <if test="isFixPay != null">
+        IS_FIX_PAY = #{isFixPay,jdbcType=CHAR},
+      </if>
+      <if test="repayResourceType != null">
+        REPAY_RESOURCE_TYPE = #{repayResourceType,jdbcType=CHAR},
+      </if>
+      <if test="penaltyInterestRate != null">
+        PENALTY_INTEREST_RATE = #{penaltyInterestRate,jdbcType=REAL},
+      </if>
+      <if test="gracePeriod != null">
+        GRACE_PERIOD = #{gracePeriod,jdbcType=INTEGER},
+      </if>
+      <if test="advanceEndPeriod != null">
+        ADVANCE_END_PERIOD = #{advanceEndPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="custLable != null">
+        CUST_LABLE = #{custLable,jdbcType=VARCHAR},
+      </if>
+      <if test="marketLabel != null">
+        MARKET_LABEL = #{marketLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=CHAR},
+      </if>
+      <if test="delayDays != null">
+        DELAY_DAYS = #{delayDays,jdbcType=INTEGER},
+      </if>
+      <if test="loanStartType != null">
+        LOAN_START_TYPE = #{loanStartType,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lesseeId != null">
+        LESSEE_ID = #{lesseeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceRate != null">
+        SERVICE_RATE = #{serviceRate,jdbcType=REAL},
+      </if>
+      <if test="partRepayFlag != null">
+        part_repay_flag = #{partRepayFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ligq.study.mybatis.demo.model.TProductInfo">
+    update t_product_info
+    set PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+      PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      PRODUCT_TYPE = #{productType,jdbcType=CHAR},
+      STANDARD_PRICE_RATE = #{standardPriceRate,jdbcType=REAL},
+      PLATFONT_PRICE_RATE = #{platfontPriceRate,jdbcType=REAL},
+      FLOOR_PRICE_RATE = #{floorPriceRate,jdbcType=REAL},
+      YEAR_INTEREST_DAYS = #{yearInterestDays,jdbcType=INTEGER},
+      REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      INTEREST_TYPE = #{interestType,jdbcType=CHAR},
+      LOAN_TERM = #{loanTerm,jdbcType=VARCHAR},
+      REPAY_CYCLE_TYPE = #{repayCycleType,jdbcType=CHAR},
+      REPAY_CYCLE_NUM = #{repayCycleNum,jdbcType=INTEGER},
+      REPAY_DAY_TYPE = #{repayDayType,jdbcType=CHAR},
+      RATE_TYPE = #{rateType,jdbcType=CHAR},
+      REPAY_DAY = #{repayDay,jdbcType=VARCHAR},
+      TOTAL_LIMIT = #{totalLimit,jdbcType=BIGINT},
+      PLATFONT_LIMIT = #{platfontLimit,jdbcType=BIGINT},
+      FLOOR_LIMIT = #{floorLimit,jdbcType=BIGINT},
+      GUARANTY_TYPE = #{guarantyType,jdbcType=CHAR},
+      IS_LOOP = #{isLoop,jdbcType=CHAR},
+      IS_REPAY = #{isRepay,jdbcType=CHAR},
+      IS_FIX_PAY = #{isFixPay,jdbcType=CHAR},
+      REPAY_RESOURCE_TYPE = #{repayResourceType,jdbcType=CHAR},
+      PENALTY_INTEREST_RATE = #{penaltyInterestRate,jdbcType=REAL},
+      GRACE_PERIOD = #{gracePeriod,jdbcType=INTEGER},
+      ADVANCE_END_PERIOD = #{advanceEndPeriod,jdbcType=INTEGER},
+      CUST_LABLE = #{custLable,jdbcType=VARCHAR},
+      MARKET_LABEL = #{marketLabel,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=CHAR},
+      DELAY_DAYS = #{delayDays,jdbcType=INTEGER},
+      LOAN_START_TYPE = #{loanStartType,jdbcType=CHAR},
+      CREATE_TIME = #{createTime,jdbcType=BIGINT},
+      CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=BIGINT},
+      UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      LESSEE_ID = #{lesseeId,jdbcType=VARCHAR},
+      SERVICE_RATE = #{serviceRate,jdbcType=REAL},
+      part_repay_flag = #{partRepayFlag,jdbcType=CHAR}
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+</mapper>
