@@ -46,12 +46,4 @@ public class User {
             return new User(this);
         }
     }
-
-    public static void main(String[] args){
-        User user = new Builder("李", "国强")
-                .age(24)
-                .phone("13*******50")
-                .address("上海")
-                .build();
-    }
 }

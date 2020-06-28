@@ -15,8 +15,8 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenLocal()
@@ -31,9 +31,10 @@ dependencies {
     implementation ("org.apache.curator:curator-framework:${curatorFrameworkVersion}")
     implementation ("org.apache.curator:curator-recipes:${curatorFrameworkVersion}")
     implementation ("org.apache.zookeeper:zookeeper:${zookeeperVersion}")
-    testImplementation ("junit:junit:${junitVersion}")
-
-    compileOnly("org.projectlombok:lombok:${lombokVersion}")
-    testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation("junit:junit:${junitVersion}")
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
