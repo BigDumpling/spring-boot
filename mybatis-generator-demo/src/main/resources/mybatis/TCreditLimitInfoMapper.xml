@@ -23,6 +23,8 @@
     <result column="UPDATE_USER" jdbcType="VARCHAR" property="updateUser" />
     <result column="REMARK" jdbcType="VARCHAR" property="remark" />
     <result column="OUT_BIZ_ID" jdbcType="VARCHAR" property="outBizId" />
+    <result column="MARKET_INTEREST_RATE_DAY" jdbcType="DECIMAL" property="marketInterestRateDay" />
+    <result column="MARKET_INTEREST_RATE_YEAR" jdbcType="DECIMAL" property="marketInterestRateYear" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,7 +87,8 @@
   <sql id="Base_Column_List">
     SEQ_ID, LESSEE_ID, CUSTOMER_ID, ID_NO, PRODUCT_ID, PRODUCT_CODE, LIMIT_AMT, LOAN_LIMIT_AMT, 
     UNAVAILABLE_LIMIT_AMT, DUE_DAY, STATUS, INTEREST_TYPE, FEE_RATE, REPAY_TYPE, LOOP_FLAG, 
-    CREATE_TIME, UPDATE_TIME, CREATE_USER, UPDATE_USER, REMARK, OUT_BIZ_ID
+    CREATE_TIME, UPDATE_TIME, CREATE_USER, UPDATE_USER, REMARK, OUT_BIZ_ID, MARKET_INTEREST_RATE_DAY, 
+    MARKET_INTEREST_RATE_YEAR
   </sql>
   <select id="selectByExample" parameterType="com.ligq.study.mybatis.demo.model.TCreditLimitInfoExample" resultMap="BaseResultMap">
     select
@@ -124,7 +127,8 @@
       DUE_DAY, STATUS, INTEREST_TYPE, 
       FEE_RATE, REPAY_TYPE, LOOP_FLAG, 
       CREATE_TIME, UPDATE_TIME, CREATE_USER, 
-      UPDATE_USER, REMARK, OUT_BIZ_ID
+      UPDATE_USER, REMARK, OUT_BIZ_ID, 
+      MARKET_INTEREST_RATE_DAY, MARKET_INTEREST_RATE_YEAR
       )
     values (#{seqId,jdbcType=VARCHAR}, #{lesseeId,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, 
       #{idNo,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, 
@@ -132,7 +136,8 @@
       #{dueDay,jdbcType=DATE}, #{status,jdbcType=CHAR}, #{interestType,jdbcType=CHAR}, 
       #{feeRate,jdbcType=DECIMAL}, #{repayType,jdbcType=VARCHAR}, #{loopFlag,jdbcType=CHAR}, 
       #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, 
-      #{updateUser,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{outBizId,jdbcType=VARCHAR}
+      #{updateUser,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{outBizId,jdbcType=VARCHAR}, 
+      #{marketInterestRateDay,jdbcType=DECIMAL}, #{marketInterestRateYear,jdbcType=DECIMAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ligq.study.mybatis.demo.model.TCreditLimitInfo">
@@ -201,6 +206,12 @@
       <if test="outBizId != null">
         OUT_BIZ_ID,
       </if>
+      <if test="marketInterestRateDay != null">
+        MARKET_INTEREST_RATE_DAY,
+      </if>
+      <if test="marketInterestRateYear != null">
+        MARKET_INTEREST_RATE_YEAR,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="seqId != null">
@@ -265,6 +276,12 @@
       </if>
       <if test="outBizId != null">
         #{outBizId,jdbcType=VARCHAR},
+      </if>
+      <if test="marketInterestRateDay != null">
+        #{marketInterestRateDay,jdbcType=DECIMAL},
+      </if>
+      <if test="marketInterestRateYear != null">
+        #{marketInterestRateYear,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -340,6 +357,12 @@
       <if test="record.outBizId != null">
         OUT_BIZ_ID = #{record.outBizId,jdbcType=VARCHAR},
       </if>
+      <if test="record.marketInterestRateDay != null">
+        MARKET_INTEREST_RATE_DAY = #{record.marketInterestRateDay,jdbcType=DECIMAL},
+      </if>
+      <if test="record.marketInterestRateYear != null">
+        MARKET_INTEREST_RATE_YEAR = #{record.marketInterestRateYear,jdbcType=DECIMAL},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -367,7 +390,9 @@
       CREATE_USER = #{record.createUser,jdbcType=VARCHAR},
       UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
       REMARK = #{record.remark,jdbcType=VARCHAR},
-      OUT_BIZ_ID = #{record.outBizId,jdbcType=VARCHAR}
+      OUT_BIZ_ID = #{record.outBizId,jdbcType=VARCHAR},
+      MARKET_INTEREST_RATE_DAY = #{record.marketInterestRateDay,jdbcType=DECIMAL},
+      MARKET_INTEREST_RATE_YEAR = #{record.marketInterestRateYear,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -435,6 +460,12 @@
       <if test="outBizId != null">
         OUT_BIZ_ID = #{outBizId,jdbcType=VARCHAR},
       </if>
+      <if test="marketInterestRateDay != null">
+        MARKET_INTEREST_RATE_DAY = #{marketInterestRateDay,jdbcType=DECIMAL},
+      </if>
+      <if test="marketInterestRateYear != null">
+        MARKET_INTEREST_RATE_YEAR = #{marketInterestRateYear,jdbcType=DECIMAL},
+      </if>
     </set>
     where SEQ_ID = #{seqId,jdbcType=VARCHAR}
   </update>
@@ -459,7 +490,9 @@
       CREATE_USER = #{createUser,jdbcType=VARCHAR},
       UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
       REMARK = #{remark,jdbcType=VARCHAR},
-      OUT_BIZ_ID = #{outBizId,jdbcType=VARCHAR}
+      OUT_BIZ_ID = #{outBizId,jdbcType=VARCHAR},
+      MARKET_INTEREST_RATE_DAY = #{marketInterestRateDay,jdbcType=DECIMAL},
+      MARKET_INTEREST_RATE_YEAR = #{marketInterestRateYear,jdbcType=DECIMAL}
     where SEQ_ID = #{seqId,jdbcType=VARCHAR}
   </update>
 </mapper>

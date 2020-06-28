@@ -42,6 +42,11 @@
     <result column="LESSEE_ID" jdbcType="VARCHAR" property="lesseeId" />
     <result column="SERVICE_RATE" jdbcType="REAL" property="serviceRate" />
     <result column="part_repay_flag" jdbcType="CHAR" property="partRepayFlag" />
+    <result column="CONFIRM_RECEIPT_FLAG" jdbcType="CHAR" property="confirmReceiptFlag" />
+    <result column="REPAYMENT_SUBJECTS" jdbcType="VARCHAR" property="repaymentSubjects" />
+    <result column="MIN_USE_AMT" jdbcType="BIGINT" property="minUseAmt" />
+    <result column="IS_NEED_LESSEE_CUSTOMER" jdbcType="CHAR" property="isNeedLesseeCustomer" />
+    <result column="DISBURSE_TYPE" jdbcType="CHAR" property="disburseType" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -108,7 +113,8 @@
     TOTAL_LIMIT, PLATFONT_LIMIT, FLOOR_LIMIT, GUARANTY_TYPE, IS_LOOP, IS_REPAY, IS_FIX_PAY, 
     REPAY_RESOURCE_TYPE, PENALTY_INTEREST_RATE, GRACE_PERIOD, ADVANCE_END_PERIOD, CUST_LABLE, 
     MARKET_LABEL, PRIORITY, DELAY_DAYS, LOAN_START_TYPE, CREATE_TIME, CREATE_USER, UPDATE_TIME, 
-    UPDATE_USER, LESSEE_ID, SERVICE_RATE, part_repay_flag
+    UPDATE_USER, LESSEE_ID, SERVICE_RATE, part_repay_flag, CONFIRM_RECEIPT_FLAG, REPAYMENT_SUBJECTS, 
+    MIN_USE_AMT, IS_NEED_LESSEE_CUSTOMER, DISBURSE_TYPE
   </sql>
   <select id="selectByExample" parameterType="com.ligq.study.mybatis.demo.model.TProductInfoExample" resultMap="BaseResultMap">
     select
@@ -153,8 +159,9 @@
       CUST_LABLE, MARKET_LABEL, PRIORITY, 
       DELAY_DAYS, LOAN_START_TYPE, CREATE_TIME, 
       CREATE_USER, UPDATE_TIME, UPDATE_USER, 
-      LESSEE_ID, SERVICE_RATE, part_repay_flag
-      )
+      LESSEE_ID, SERVICE_RATE, part_repay_flag, 
+      CONFIRM_RECEIPT_FLAG, REPAYMENT_SUBJECTS, MIN_USE_AMT, 
+      IS_NEED_LESSEE_CUSTOMER, DISBURSE_TYPE)
     values (#{productId,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
       #{status,jdbcType=CHAR}, #{productType,jdbcType=CHAR}, #{standardPriceRate,jdbcType=REAL}, 
       #{platfontPriceRate,jdbcType=REAL}, #{floorPriceRate,jdbcType=REAL}, #{yearInterestDays,jdbcType=INTEGER}, 
@@ -167,8 +174,9 @@
       #{custLable,jdbcType=VARCHAR}, #{marketLabel,jdbcType=VARCHAR}, #{priority,jdbcType=CHAR}, 
       #{delayDays,jdbcType=INTEGER}, #{loanStartType,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, 
       #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=BIGINT}, #{updateUser,jdbcType=VARCHAR}, 
-      #{lesseeId,jdbcType=VARCHAR}, #{serviceRate,jdbcType=REAL}, #{partRepayFlag,jdbcType=CHAR}
-      )
+      #{lesseeId,jdbcType=VARCHAR}, #{serviceRate,jdbcType=REAL}, #{partRepayFlag,jdbcType=CHAR}, 
+      #{confirmReceiptFlag,jdbcType=CHAR}, #{repaymentSubjects,jdbcType=VARCHAR}, #{minUseAmt,jdbcType=BIGINT}, 
+      #{isNeedLesseeCustomer,jdbcType=CHAR}, #{disburseType,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ligq.study.mybatis.demo.model.TProductInfo">
     insert into t_product_info
@@ -293,6 +301,21 @@
       <if test="partRepayFlag != null">
         part_repay_flag,
       </if>
+      <if test="confirmReceiptFlag != null">
+        CONFIRM_RECEIPT_FLAG,
+      </if>
+      <if test="repaymentSubjects != null">
+        REPAYMENT_SUBJECTS,
+      </if>
+      <if test="minUseAmt != null">
+        MIN_USE_AMT,
+      </if>
+      <if test="isNeedLesseeCustomer != null">
+        IS_NEED_LESSEE_CUSTOMER,
+      </if>
+      <if test="disburseType != null">
+        DISBURSE_TYPE,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="productId != null">
@@ -414,6 +437,21 @@
       </if>
       <if test="partRepayFlag != null">
         #{partRepayFlag,jdbcType=CHAR},
+      </if>
+      <if test="confirmReceiptFlag != null">
+        #{confirmReceiptFlag,jdbcType=CHAR},
+      </if>
+      <if test="repaymentSubjects != null">
+        #{repaymentSubjects,jdbcType=VARCHAR},
+      </if>
+      <if test="minUseAmt != null">
+        #{minUseAmt,jdbcType=BIGINT},
+      </if>
+      <if test="isNeedLesseeCustomer != null">
+        #{isNeedLesseeCustomer,jdbcType=CHAR},
+      </if>
+      <if test="disburseType != null">
+        #{disburseType,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -546,6 +584,21 @@
       <if test="record.partRepayFlag != null">
         part_repay_flag = #{record.partRepayFlag,jdbcType=CHAR},
       </if>
+      <if test="record.confirmReceiptFlag != null">
+        CONFIRM_RECEIPT_FLAG = #{record.confirmReceiptFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.repaymentSubjects != null">
+        REPAYMENT_SUBJECTS = #{record.repaymentSubjects,jdbcType=VARCHAR},
+      </if>
+      <if test="record.minUseAmt != null">
+        MIN_USE_AMT = #{record.minUseAmt,jdbcType=BIGINT},
+      </if>
+      <if test="record.isNeedLesseeCustomer != null">
+        IS_NEED_LESSEE_CUSTOMER = #{record.isNeedLesseeCustomer,jdbcType=CHAR},
+      </if>
+      <if test="record.disburseType != null">
+        DISBURSE_TYPE = #{record.disburseType,jdbcType=CHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -592,7 +645,12 @@
       UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
       LESSEE_ID = #{record.lesseeId,jdbcType=VARCHAR},
       SERVICE_RATE = #{record.serviceRate,jdbcType=REAL},
-      part_repay_flag = #{record.partRepayFlag,jdbcType=CHAR}
+      part_repay_flag = #{record.partRepayFlag,jdbcType=CHAR},
+      CONFIRM_RECEIPT_FLAG = #{record.confirmReceiptFlag,jdbcType=CHAR},
+      REPAYMENT_SUBJECTS = #{record.repaymentSubjects,jdbcType=VARCHAR},
+      MIN_USE_AMT = #{record.minUseAmt,jdbcType=BIGINT},
+      IS_NEED_LESSEE_CUSTOMER = #{record.isNeedLesseeCustomer,jdbcType=CHAR},
+      DISBURSE_TYPE = #{record.disburseType,jdbcType=CHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -717,6 +775,21 @@
       <if test="partRepayFlag != null">
         part_repay_flag = #{partRepayFlag,jdbcType=CHAR},
       </if>
+      <if test="confirmReceiptFlag != null">
+        CONFIRM_RECEIPT_FLAG = #{confirmReceiptFlag,jdbcType=CHAR},
+      </if>
+      <if test="repaymentSubjects != null">
+        REPAYMENT_SUBJECTS = #{repaymentSubjects,jdbcType=VARCHAR},
+      </if>
+      <if test="minUseAmt != null">
+        MIN_USE_AMT = #{minUseAmt,jdbcType=BIGINT},
+      </if>
+      <if test="isNeedLesseeCustomer != null">
+        IS_NEED_LESSEE_CUSTOMER = #{isNeedLesseeCustomer,jdbcType=CHAR},
+      </if>
+      <if test="disburseType != null">
+        DISBURSE_TYPE = #{disburseType,jdbcType=CHAR},
+      </if>
     </set>
     where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
   </update>
@@ -760,7 +833,12 @@
       UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
       LESSEE_ID = #{lesseeId,jdbcType=VARCHAR},
       SERVICE_RATE = #{serviceRate,jdbcType=REAL},
-      part_repay_flag = #{partRepayFlag,jdbcType=CHAR}
+      part_repay_flag = #{partRepayFlag,jdbcType=CHAR},
+      CONFIRM_RECEIPT_FLAG = #{confirmReceiptFlag,jdbcType=CHAR},
+      REPAYMENT_SUBJECTS = #{repaymentSubjects,jdbcType=VARCHAR},
+      MIN_USE_AMT = #{minUseAmt,jdbcType=BIGINT},
+      IS_NEED_LESSEE_CUSTOMER = #{isNeedLesseeCustomer,jdbcType=CHAR},
+      DISBURSE_TYPE = #{disburseType,jdbcType=CHAR}
     where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
   </update>
 </mapper>

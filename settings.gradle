@@ -19,4 +19,5 @@ include 'mybatis-demo'
 include 'design-patterns-demo'
 include 'jackson-demo'
 include 'nio-demo'
+include 'spring-ioc-demo'
 

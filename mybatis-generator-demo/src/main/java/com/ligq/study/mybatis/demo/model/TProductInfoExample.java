@@ -2753,6 +2753,346 @@ public class TProductInfoExample {
             addCriterion("part_repay_flag not between", value1, value2, "partRepayFlag");
             return (Criteria) this;
         }
+
+        public Criteria andConfirmReceiptFlagIsNull() {
+            addCriterion("CONFIRM_RECEIPT_FLAG is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagIsNotNull() {
+            addCriterion("CONFIRM_RECEIPT_FLAG is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagEqualTo(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG =", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagNotEqualTo(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG <>", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagGreaterThan(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG >", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagGreaterThanOrEqualTo(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG >=", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagLessThan(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG <", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagLessThanOrEqualTo(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG <=", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagLike(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG like", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagNotLike(String value) {
+            addCriterion("CONFIRM_RECEIPT_FLAG not like", value, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagIn(List<String> values) {
+            addCriterion("CONFIRM_RECEIPT_FLAG in", values, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagNotIn(List<String> values) {
+            addCriterion("CONFIRM_RECEIPT_FLAG not in", values, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagBetween(String value1, String value2) {
+            addCriterion("CONFIRM_RECEIPT_FLAG between", value1, value2, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmReceiptFlagNotBetween(String value1, String value2) {
+            addCriterion("CONFIRM_RECEIPT_FLAG not between", value1, value2, "confirmReceiptFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsIsNull() {
+            addCriterion("REPAYMENT_SUBJECTS is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsIsNotNull() {
+            addCriterion("REPAYMENT_SUBJECTS is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsEqualTo(String value) {
+            addCriterion("REPAYMENT_SUBJECTS =", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsNotEqualTo(String value) {
+            addCriterion("REPAYMENT_SUBJECTS <>", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsGreaterThan(String value) {
+            addCriterion("REPAYMENT_SUBJECTS >", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsGreaterThanOrEqualTo(String value) {
+            addCriterion("REPAYMENT_SUBJECTS >=", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsLessThan(String value) {
+            addCriterion("REPAYMENT_SUBJECTS <", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsLessThanOrEqualTo(String value) {
+            addCriterion("REPAYMENT_SUBJECTS <=", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsLike(String value) {
+            addCriterion("REPAYMENT_SUBJECTS like", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsNotLike(String value) {
+            addCriterion("REPAYMENT_SUBJECTS not like", value, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsIn(List<String> values) {
+            addCriterion("REPAYMENT_SUBJECTS in", values, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsNotIn(List<String> values) {
+            addCriterion("REPAYMENT_SUBJECTS not in", values, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsBetween(String value1, String value2) {
+            addCriterion("REPAYMENT_SUBJECTS between", value1, value2, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaymentSubjectsNotBetween(String value1, String value2) {
+            addCriterion("REPAYMENT_SUBJECTS not between", value1, value2, "repaymentSubjects");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtIsNull() {
+            addCriterion("MIN_USE_AMT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtIsNotNull() {
+            addCriterion("MIN_USE_AMT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtEqualTo(Long value) {
+            addCriterion("MIN_USE_AMT =", value, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtNotEqualTo(Long value) {
+            addCriterion("MIN_USE_AMT <>", value, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtGreaterThan(Long value) {
+            addCriterion("MIN_USE_AMT >", value, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtGreaterThanOrEqualTo(Long value) {
+            addCriterion("MIN_USE_AMT >=", value, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtLessThan(Long value) {
+            addCriterion("MIN_USE_AMT <", value, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtLessThanOrEqualTo(Long value) {
+            addCriterion("MIN_USE_AMT <=", value, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtIn(List<Long> values) {
+            addCriterion("MIN_USE_AMT in", values, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtNotIn(List<Long> values) {
+            addCriterion("MIN_USE_AMT not in", values, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtBetween(Long value1, Long value2) {
+            addCriterion("MIN_USE_AMT between", value1, value2, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andMinUseAmtNotBetween(Long value1, Long value2) {
+            addCriterion("MIN_USE_AMT not between", value1, value2, "minUseAmt");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerIsNull() {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerIsNotNull() {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerEqualTo(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER =", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerNotEqualTo(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER <>", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerGreaterThan(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER >", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerGreaterThanOrEqualTo(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER >=", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerLessThan(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER <", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerLessThanOrEqualTo(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER <=", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerLike(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER like", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerNotLike(String value) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER not like", value, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerIn(List<String> values) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER in", values, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerNotIn(List<String> values) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER not in", values, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerBetween(String value1, String value2) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER between", value1, value2, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsNeedLesseeCustomerNotBetween(String value1, String value2) {
+            addCriterion("IS_NEED_LESSEE_CUSTOMER not between", value1, value2, "isNeedLesseeCustomer");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeIsNull() {
+            addCriterion("DISBURSE_TYPE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeIsNotNull() {
+            addCriterion("DISBURSE_TYPE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeEqualTo(String value) {
+            addCriterion("DISBURSE_TYPE =", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeNotEqualTo(String value) {
+            addCriterion("DISBURSE_TYPE <>", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeGreaterThan(String value) {
+            addCriterion("DISBURSE_TYPE >", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("DISBURSE_TYPE >=", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeLessThan(String value) {
+            addCriterion("DISBURSE_TYPE <", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeLessThanOrEqualTo(String value) {
+            addCriterion("DISBURSE_TYPE <=", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeLike(String value) {
+            addCriterion("DISBURSE_TYPE like", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeNotLike(String value) {
+            addCriterion("DISBURSE_TYPE not like", value, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeIn(List<String> values) {
+            addCriterion("DISBURSE_TYPE in", values, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeNotIn(List<String> values) {
+            addCriterion("DISBURSE_TYPE not in", values, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeBetween(String value1, String value2) {
+            addCriterion("DISBURSE_TYPE between", value1, value2, "disburseType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisburseTypeNotBetween(String value1, String value2) {
+            addCriterion("DISBURSE_TYPE not between", value1, value2, "disburseType");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

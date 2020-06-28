@@ -46,6 +46,10 @@ public class TCreditLimitInfo {
 
     private String outBizId;
 
+    private BigDecimal marketInterestRateDay;
+
+    private BigDecimal marketInterestRateYear;
+
     public String getSeqId() {
         return seqId;
     }
@@ -212,5 +216,21 @@ public class TCreditLimitInfo {
 
     public void setOutBizId(String outBizId) {
         this.outBizId = outBizId;
+    }
+
+    public BigDecimal getMarketInterestRateDay() {
+        return marketInterestRateDay;
+    }
+
+    public void setMarketInterestRateDay(BigDecimal marketInterestRateDay) {
+        this.marketInterestRateDay = marketInterestRateDay;
+    }
+
+    public BigDecimal getMarketInterestRateYear() {
+        return marketInterestRateYear;
+    }
+
+    public void setMarketInterestRateYear(BigDecimal marketInterestRateYear) {
+        this.marketInterestRateYear = marketInterestRateYear;
     }
 }

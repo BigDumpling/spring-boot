@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TCreditMarketingRateInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfo">
+    <id column="seq_id" jdbcType="VARCHAR" property="seqId" />
+    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <result column="credit_limit_id" jdbcType="VARCHAR" property="creditLimitId" />
+    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
+    <result column="marketing_mode" jdbcType="CHAR" property="marketingMode" />
+    <result column="interest_rate" jdbcType="DECIMAL" property="interestRate" />
+    <result column="interest_rate_type" jdbcType="CHAR" property="interestRateType" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="use_scope" jdbcType="CHAR" property="useScope" />
+    <result column="data_source" jdbcType="CHAR" property="dataSource" />
+    <result column="reason_code" jdbcType="VARCHAR" property="reasonCode" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="BIZ_STATUS" jdbcType="CHAR" property="bizStatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    seq_id, customer_id, credit_limit_id, product_id, product_code, marketing_mode, interest_rate, 
+    interest_rate_type, start_date, end_date, status, use_scope, data_source, reason_code, 
+    create_time, update_time, remark, BIZ_STATUS
+  </sql>
+  <select id="selectByExample" parameterType="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_credit_marketing_rate_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_credit_marketing_rate_info
+    where seq_id = #{seqId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_credit_marketing_rate_info
+    where seq_id = #{seqId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfoExample">
+    delete from t_credit_marketing_rate_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfo">
+    insert into t_credit_marketing_rate_info (seq_id, customer_id, credit_limit_id, 
+      product_id, product_code, marketing_mode, 
+      interest_rate, interest_rate_type, start_date, 
+      end_date, status, use_scope, 
+      data_source, reason_code, create_time, 
+      update_time, remark, BIZ_STATUS
+      )
+    values (#{seqId,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{creditLimitId,jdbcType=VARCHAR}, 
+      #{productId,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, #{marketingMode,jdbcType=CHAR}, 
+      #{interestRate,jdbcType=DECIMAL}, #{interestRateType,jdbcType=CHAR}, #{startDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{useScope,jdbcType=CHAR}, 
+      #{dataSource,jdbcType=CHAR}, #{reasonCode,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{bizStatus,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfo">
+    insert into t_credit_marketing_rate_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        seq_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="creditLimitId != null">
+        credit_limit_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="productCode != null">
+        product_code,
+      </if>
+      <if test="marketingMode != null">
+        marketing_mode,
+      </if>
+      <if test="interestRate != null">
+        interest_rate,
+      </if>
+      <if test="interestRateType != null">
+        interest_rate_type,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="useScope != null">
+        use_scope,
+      </if>
+      <if test="dataSource != null">
+        data_source,
+      </if>
+      <if test="reasonCode != null">
+        reason_code,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="bizStatus != null">
+        BIZ_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimitId != null">
+        #{creditLimitId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="marketingMode != null">
+        #{marketingMode,jdbcType=CHAR},
+      </if>
+      <if test="interestRate != null">
+        #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="interestRateType != null">
+        #{interestRateType,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="useScope != null">
+        #{useScope,jdbcType=CHAR},
+      </if>
+      <if test="dataSource != null">
+        #{dataSource,jdbcType=CHAR},
+      </if>
+      <if test="reasonCode != null">
+        #{reasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bizStatus != null">
+        #{bizStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfoExample" resultType="java.lang.Long">
+    select count(*) from t_credit_marketing_rate_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_credit_marketing_rate_info
+    <set>
+      <if test="record.seqId != null">
+        seq_id = #{record.seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerId != null">
+        customer_id = #{record.customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditLimitId != null">
+        credit_limit_id = #{record.creditLimitId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null">
+        product_id = #{record.productId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productCode != null">
+        product_code = #{record.productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marketingMode != null">
+        marketing_mode = #{record.marketingMode,jdbcType=CHAR},
+      </if>
+      <if test="record.interestRate != null">
+        interest_rate = #{record.interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.interestRateType != null">
+        interest_rate_type = #{record.interestRateType,jdbcType=CHAR},
+      </if>
+      <if test="record.startDate != null">
+        start_date = #{record.startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.endDate != null">
+        end_date = #{record.endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.useScope != null">
+        use_scope = #{record.useScope,jdbcType=CHAR},
+      </if>
+      <if test="record.dataSource != null">
+        data_source = #{record.dataSource,jdbcType=CHAR},
+      </if>
+      <if test="record.reasonCode != null">
+        reason_code = #{record.reasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bizStatus != null">
+        BIZ_STATUS = #{record.bizStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_credit_marketing_rate_info
+    set seq_id = #{record.seqId,jdbcType=VARCHAR},
+      customer_id = #{record.customerId,jdbcType=VARCHAR},
+      credit_limit_id = #{record.creditLimitId,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=VARCHAR},
+      product_code = #{record.productCode,jdbcType=VARCHAR},
+      marketing_mode = #{record.marketingMode,jdbcType=CHAR},
+      interest_rate = #{record.interestRate,jdbcType=DECIMAL},
+      interest_rate_type = #{record.interestRateType,jdbcType=CHAR},
+      start_date = #{record.startDate,jdbcType=VARCHAR},
+      end_date = #{record.endDate,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      use_scope = #{record.useScope,jdbcType=CHAR},
+      data_source = #{record.dataSource,jdbcType=CHAR},
+      reason_code = #{record.reasonCode,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=BIGINT},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      BIZ_STATUS = #{record.bizStatus,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfo">
+    update t_credit_marketing_rate_info
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimitId != null">
+        credit_limit_id = #{creditLimitId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="marketingMode != null">
+        marketing_mode = #{marketingMode,jdbcType=CHAR},
+      </if>
+      <if test="interestRate != null">
+        interest_rate = #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="interestRateType != null">
+        interest_rate_type = #{interestRateType,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="useScope != null">
+        use_scope = #{useScope,jdbcType=CHAR},
+      </if>
+      <if test="dataSource != null">
+        data_source = #{dataSource,jdbcType=CHAR},
+      </if>
+      <if test="reasonCode != null">
+        reason_code = #{reasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bizStatus != null">
+        BIZ_STATUS = #{bizStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where seq_id = #{seqId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ligq.study.mybatis.demo.model.TCreditMarketingRateInfo">
+    update t_credit_marketing_rate_info
+    set customer_id = #{customerId,jdbcType=VARCHAR},
+      credit_limit_id = #{creditLimitId,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      marketing_mode = #{marketingMode,jdbcType=CHAR},
+      interest_rate = #{interestRate,jdbcType=DECIMAL},
+      interest_rate_type = #{interestRateType,jdbcType=CHAR},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      use_scope = #{useScope,jdbcType=CHAR},
+      data_source = #{dataSource,jdbcType=CHAR},
+      reason_code = #{reasonCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      BIZ_STATUS = #{bizStatus,jdbcType=CHAR}
+    where seq_id = #{seqId,jdbcType=VARCHAR}
+  </update>
+</mapper>

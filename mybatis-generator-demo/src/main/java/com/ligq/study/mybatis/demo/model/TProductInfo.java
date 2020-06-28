@@ -81,6 +81,16 @@ public class TProductInfo {
 
     private String partRepayFlag;
 
+    private String confirmReceiptFlag;
+
+    private String repaymentSubjects;
+
+    private Long minUseAmt;
+
+    private String isNeedLesseeCustomer;
+
+    private String disburseType;
+
     public String getProductId() {
         return productId;
     }
@@ -399,5 +409,45 @@ public class TProductInfo {
 
     public void setPartRepayFlag(String partRepayFlag) {
         this.partRepayFlag = partRepayFlag;
+    }
+
+    public String getConfirmReceiptFlag() {
+        return confirmReceiptFlag;
+    }
+
+    public void setConfirmReceiptFlag(String confirmReceiptFlag) {
+        this.confirmReceiptFlag = confirmReceiptFlag;
+    }
+
+    public String getRepaymentSubjects() {
+        return repaymentSubjects;
+    }
+
+    public void setRepaymentSubjects(String repaymentSubjects) {
+        this.repaymentSubjects = repaymentSubjects;
+    }
+
+    public Long getMinUseAmt() {
+        return minUseAmt;
+    }
+
+    public void setMinUseAmt(Long minUseAmt) {
+        this.minUseAmt = minUseAmt;
+    }
+
+    public String getIsNeedLesseeCustomer() {
+        return isNeedLesseeCustomer;
+    }
+
+    public void setIsNeedLesseeCustomer(String isNeedLesseeCustomer) {
+        this.isNeedLesseeCustomer = isNeedLesseeCustomer;
+    }
+
+    public String getDisburseType() {
+        return disburseType;
+    }
+
+    public void setDisburseType(String disburseType) {
+        this.disburseType = disburseType;
     }
 }

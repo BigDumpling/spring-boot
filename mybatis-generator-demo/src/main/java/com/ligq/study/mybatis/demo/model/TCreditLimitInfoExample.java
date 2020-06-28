@@ -1532,6 +1532,126 @@ public class TCreditLimitInfoExample {
             addCriterion("OUT_BIZ_ID not between", value1, value2, "outBizId");
             return (Criteria) this;
         }
+
+        public Criteria andMarketInterestRateDayIsNull() {
+            addCriterion("MARKET_INTEREST_RATE_DAY is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayIsNotNull() {
+            addCriterion("MARKET_INTEREST_RATE_DAY is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_DAY =", value, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayNotEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_DAY <>", value, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayGreaterThan(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_DAY >", value, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_DAY >=", value, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayLessThan(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_DAY <", value, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_DAY <=", value, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayIn(List<BigDecimal> values) {
+            addCriterion("MARKET_INTEREST_RATE_DAY in", values, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayNotIn(List<BigDecimal> values) {
+            addCriterion("MARKET_INTEREST_RATE_DAY not in", values, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("MARKET_INTEREST_RATE_DAY between", value1, value2, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateDayNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("MARKET_INTEREST_RATE_DAY not between", value1, value2, "marketInterestRateDay");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearIsNull() {
+            addCriterion("MARKET_INTEREST_RATE_YEAR is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearIsNotNull() {
+            addCriterion("MARKET_INTEREST_RATE_YEAR is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR =", value, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearNotEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR <>", value, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearGreaterThan(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR >", value, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR >=", value, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearLessThan(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR <", value, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR <=", value, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearIn(List<BigDecimal> values) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR in", values, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearNotIn(List<BigDecimal> values) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR not in", values, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR between", value1, value2, "marketInterestRateYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarketInterestRateYearNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("MARKET_INTEREST_RATE_YEAR not between", value1, value2, "marketInterestRateYear");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

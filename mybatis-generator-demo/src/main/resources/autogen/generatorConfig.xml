@@ -23,8 +23,7 @@
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://10.50.17.10:3306/stdcmp?useUnicode=true;characterEncoding=utf8"
                         userId="stdcmpopr"
-                        password="Only4StdcmpApp!">
-        </jdbcConnection>
+                        password="Only4StdcmpApp!" />
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="true"/>
@@ -46,19 +45,45 @@
 <!--                <table tableName="t_credit_limit_log"/>-->
         <!--        <table tableName="t_opr_base_log"/>-->
         <!--        <table tableName="T_CREDIT_APPLY_NODE_INFO"/>-->
-        <!--        <table tableName="t_customer_base"/>-->
+<!--                <table tableName="t_customer_base"/>-->
         <!--        <table tableName="T_CUSTOMER_LEGAL"/>-->
         <!--        <table tableName="T_CUSTOMER_PERSON_DETAIL"/>-->
         <!--        <table tableName="T_CUSTOMER_LOGIN_INFO"/>-->
 
 <!--        <table tableName="t_property_info"/>-->
 <!--        <table tableName="t_credit_limit_info"/>-->
-<!--        <table tableName="t_deal_cusdis_info"/>-->
+<!--        <table tableName="t_credit_limit_log"/>-->
+<!--                <table tableName="t_credit_apply_log"/>-->
+
+        <!--        <table tableName="t_deal_cusdis_info"/>-->
 <!--        <table tableName="t_customer_settleacc_info"/>-->
 <!--        <table tableName="t_base_bank_info"/>-->
 <!--        <table tableName="t_base_area_city"/>-->
 <!--        <table tableName="t_customer_card_info"/>-->
 <!--        <table tableName="t_product_info"/>-->
-        <table tableName="t_credit_apply_log"></table>
+<!--        <table tableName="t_product_introduce"/>-->
+<!--        <table tableName="T_SALES_USER_INFO"></table>-->
+<!--        <table tableName="t_notice_template"></table>-->
+<!--        <table tableName="t_opr_param"></table>-->
+<!--        <table tableName="T_SALES_USER_LOGIN_LOG"></table>-->
+<!--        <table tableName="T_SALES_USER_MKT_LIST"></table>-->
+<!--        <table tableName="t_customer_group_info"></table>-->
+        <table tableName="t_credit_apply_node_info"></table>
+<!--        <table tableName="t_customer_auth_log"></table>-->
+<!--        <table tableName="t_credit_marketing_rate_info"></table>-->
+<!--        <table tableName="temp_interest_discount_cust"></table>-->
+<!--        <table tableName="t_credit_limit_info"></table>-->
+<!--        <table tableName="T_SALES_USER_INFO"></table>-->
+<!--        <table tableName="T_SALES_USER_LESSEE"></table>-->
+<!--        <table tableName="T_SALES_USER_LESSEE"></table>-->
+<!--        <table tableName="T_LESSEE_BRANCH"></table>-->
+<!--        <table tableName="T_OPR_FILE_BATCH"></table>-->
+
+<!--        <table tableName="T_A001_SALES_USER_INFO"></table>-->
+<!--        <table tableName="T_A001_SALES_USER_LOGIN_LOG"></table>-->
+<!--        <table tableName="t_product_supply_info_step"/>-->
+<!--        <table tableName="t_customer_product_supply_log"/>-->
+<!--        <table tableName="t_customer_group_info"/>-->
+<!--        <table tableName="t_customer_label"/>-->
     </context>
 </generatorConfiguration>

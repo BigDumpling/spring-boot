@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TCustomerLabelMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TCustomerLabel">
+    <id column="SEQ_ID" jdbcType="VARCHAR" property="seqId" />
+    <result column="OUT_CUSTOMER_ID" jdbcType="VARCHAR" property="outCustomerId" />
+    <result column="LABEL_CODE" jdbcType="VARCHAR" property="labelCode" />
+    <result column="LABEL_NAME" jdbcType="CHAR" property="labelName" />
+    <result column="LABEL_TYPE" jdbcType="CHAR" property="labelType" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="CREATE_USER" jdbcType="VARCHAR" property="createUser" />
+    <result column="CREATE_TIME" jdbcType="BIGINT" property="createTime" />
+    <result column="UPDATE_USER" jdbcType="VARCHAR" property="updateUser" />
+    <result column="UPDATE_TIME" jdbcType="BIGINT" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SEQ_ID, OUT_CUSTOMER_ID, LABEL_CODE, LABEL_NAME, LABEL_TYPE, STATUS, REMARK, CREATE_USER, 
+    CREATE_TIME, UPDATE_USER, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.ligq.study.mybatis.demo.model.TCustomerLabelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_customer_label
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_customer_label
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_customer_label
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ligq.study.mybatis.demo.model.TCustomerLabelExample">
+    delete from t_customer_label
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ligq.study.mybatis.demo.model.TCustomerLabel">
+    insert into t_customer_label (SEQ_ID, OUT_CUSTOMER_ID, LABEL_CODE, 
+      LABEL_NAME, LABEL_TYPE, STATUS, 
+      REMARK, CREATE_USER, CREATE_TIME, 
+      UPDATE_USER, UPDATE_TIME)
+    values (#{seqId,jdbcType=VARCHAR}, #{outCustomerId,jdbcType=VARCHAR}, #{labelCode,jdbcType=VARCHAR}, 
+      #{labelName,jdbcType=CHAR}, #{labelType,jdbcType=CHAR}, #{status,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ligq.study.mybatis.demo.model.TCustomerLabel">
+    insert into t_customer_label
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="outCustomerId != null">
+        OUT_CUSTOMER_ID,
+      </if>
+      <if test="labelCode != null">
+        LABEL_CODE,
+      </if>
+      <if test="labelName != null">
+        LABEL_NAME,
+      </if>
+      <if test="labelType != null">
+        LABEL_TYPE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="outCustomerId != null">
+        #{outCustomerId,jdbcType=VARCHAR},
+      </if>
+      <if test="labelCode != null">
+        #{labelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="labelName != null">
+        #{labelName,jdbcType=CHAR},
+      </if>
+      <if test="labelType != null">
+        #{labelType,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ligq.study.mybatis.demo.model.TCustomerLabelExample" resultType="java.lang.Long">
+    select count(*) from t_customer_label
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_customer_label
+    <set>
+      <if test="record.seqId != null">
+        SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outCustomerId != null">
+        OUT_CUSTOMER_ID = #{record.outCustomerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labelCode != null">
+        LABEL_CODE = #{record.labelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labelName != null">
+        LABEL_NAME = #{record.labelName,jdbcType=CHAR},
+      </if>
+      <if test="record.labelType != null">
+        LABEL_TYPE = #{record.labelType,jdbcType=CHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_customer_label
+    set SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+      OUT_CUSTOMER_ID = #{record.outCustomerId,jdbcType=VARCHAR},
+      LABEL_CODE = #{record.labelCode,jdbcType=VARCHAR},
+      LABEL_NAME = #{record.labelName,jdbcType=CHAR},
+      LABEL_TYPE = #{record.labelType,jdbcType=CHAR},
+      STATUS = #{record.status,jdbcType=CHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      CREATE_USER = #{record.createUser,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=BIGINT},
+      UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ligq.study.mybatis.demo.model.TCustomerLabel">
+    update t_customer_label
+    <set>
+      <if test="outCustomerId != null">
+        OUT_CUSTOMER_ID = #{outCustomerId,jdbcType=VARCHAR},
+      </if>
+      <if test="labelCode != null">
+        LABEL_CODE = #{labelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="labelName != null">
+        LABEL_NAME = #{labelName,jdbcType=CHAR},
+      </if>
+      <if test="labelType != null">
+        LABEL_TYPE = #{labelType,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ligq.study.mybatis.demo.model.TCustomerLabel">
+    update t_customer_label
+    set OUT_CUSTOMER_ID = #{outCustomerId,jdbcType=VARCHAR},
+      LABEL_CODE = #{labelCode,jdbcType=VARCHAR},
+      LABEL_NAME = #{labelName,jdbcType=CHAR},
+      LABEL_TYPE = #{labelType,jdbcType=CHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=BIGINT},
+      UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=BIGINT}
+    where SEQ_ID = #{seqId,jdbcType=VARCHAR}
+  </update>
+</mapper>
