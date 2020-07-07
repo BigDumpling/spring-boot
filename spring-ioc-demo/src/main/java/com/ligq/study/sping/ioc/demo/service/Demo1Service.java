@@ -9,17 +9,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class Demo1Service {
 
-//    private IocDemoBeanFactoryPostProcessor2 iocDemoBeanFactoryPostProcessor2;
+    @Autowired
+    private IocDemoBeanFactoryPostProcessor2 iocDemoBeanFactoryPostProcessor2;
 //
-    public Demo1Service(){}
-
-
-//    @Autowired
+//    public Demo1Service(){}
+//
+//
+//    @Autowired(required = false)
 //    public Demo1Service(IocDemoBeanFactoryPostProcessor2 ioc){
 //        log.info("IocDemoBeanFactoryPostProcessor2 ioc ");
 //    }
-
-
+//
+//    @Autowired(required = false)
+//    public Demo1Service(IocDemoBeanFactoryPostProcessor2 ioc, String name){
+//        log.info("IocDemoBeanFactoryPostProcessor2 ioc, name ");
+//    }
 
     public void demo() {
         log.info("Demo1Service demo");
