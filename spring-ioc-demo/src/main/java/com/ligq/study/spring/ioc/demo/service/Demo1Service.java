@@ -1,12 +1,10 @@
-package com.ligq.study.sping.ioc.demo.service;
+package com.ligq.study.spring.ioc.demo.service;
 
-import com.ligq.study.sping.ioc.demo.config.IocDemoBeanFactoryPostProcessor2;
+import com.ligq.study.spring.ioc.demo.config.IocDemoBeanFactoryPostProcessor2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 @Slf4j
 @Service
@@ -28,9 +26,9 @@ public class Demo1Service implements InitializingBean {
 //        log.info("IocDemoBeanFactoryPostProcessor2 ioc, name ");
 //    }
 
-    @PostConstruct
     public void demo() {
         log.info("PostConstruct Demo1Service demo");
+        throw new RuntimeException("test");
     }
 
     @Override

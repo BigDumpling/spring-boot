@@ -1,4 +1,4 @@
-package com.ligq.study.sping.ioc.demo.model;
+package com.ligq.study.spring.ioc.demo.model;
 
 import lombok.extern.slf4j.Slf4j;
 

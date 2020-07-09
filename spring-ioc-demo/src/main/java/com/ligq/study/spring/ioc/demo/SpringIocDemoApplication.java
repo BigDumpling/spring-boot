@@ -1,13 +1,15 @@
-package com.ligq.study.sping.ioc.demo;
+package com.ligq.study.spring.ioc.demo;
 
-import com.ligq.study.sping.ioc.demo.config.DemoConfig;
-import com.ligq.study.sping.ioc.demo.service.Demo1Service;
+import com.ligq.study.spring.ioc.demo.config.DemoConfig;
+import com.ligq.study.spring.ioc.demo.service.Demo1Service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Slf4j
 @SpringBootApplication
+@EnableAspectJAutoProxy
 public class SpringIocDemoApplication {
 
     public static void main(String[] args) {
