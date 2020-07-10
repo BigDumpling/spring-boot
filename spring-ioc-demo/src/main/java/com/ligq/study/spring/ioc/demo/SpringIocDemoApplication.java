@@ -6,10 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+//import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Slf4j
 @SpringBootApplication
 @EnableAspectJAutoProxy
+//@EnableTransactionManagement
 public class SpringIocDemoApplication {
 
     public static void main(String[] args) {
