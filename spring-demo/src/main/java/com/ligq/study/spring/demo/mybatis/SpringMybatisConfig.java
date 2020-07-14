@@ -2,16 +2,18 @@ package com.ligq.study.spring.demo.mybatis;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.io.Resources;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 
 import javax.sql.DataSource;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Spring集成mybatis
@@ -36,14 +38,17 @@ public class SpringMybatisConfig {
 
     @Bean
     @ConditionalOnBean(value = {DataSource.class})
-    public SqlSessionFactoryBean sqlSessionFactory() {
+    public SqlSessionFactoryBean sqlSessionFactory() throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
 
-        File file = new File("resource/");
+        ResourcePatternResolver resource = new PathMatchingResourcePatternResolver();
+        Resource[] resources = resource.getResources("resource/mybatis");
+
+        File file = new File("resource/mybatis");
         log.info("files == {}", file.list());
 
-        sqlSessionFactoryBean.setMapperLocations(new ClassPathResource("CityMapper.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resources);
         /**
          * 其它配置项
          */
