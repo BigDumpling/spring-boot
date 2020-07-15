@@ -24,4 +24,23 @@ public class CommonTest {
         ContractModel model2 = gson.fromJson(json2, ContractModel.class);
         log.info("model2 == {}", gson.toJson(model2));
     }
+
+    @Test
+    public void nullTest(){
+        Object o1 = null;
+        Object o2 = null;
+
+        log.info("o1 == o2 = {}", o1 == o2);
+//        log.info("o1 equals o2 = {}", o1.equals(o2));
+        log.info("o1 != o2 = {}", o1 != o2);
+
+        Object o3 = null;
+        Object o4 = "null";
+        log.info("o3 == o3 = {}", o3 == o3);
+        log.info("o3 != o3 = {}", o3 != o3);
+        log.info("o4 == o4 = {}", o4 == o4);
+        log.info("o4 != o4 = {}", o4 != o4);
+
+
+    }
 }

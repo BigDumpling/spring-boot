@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class SpringIocDemoApplication {
 
     public static void main(String[] args) {
-//        new ArrayList<>(Arrays.asList());
+        new ArrayList<>(Arrays.asList());
 //        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(DemoConfig.class);
 //        Demo1Service demo1Service = (Demo1Service) applicationContext.getBean("demo1Service");
 //        demo1Service.demo();
