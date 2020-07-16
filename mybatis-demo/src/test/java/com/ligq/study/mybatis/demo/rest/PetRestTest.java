@@ -23,7 +23,7 @@ public class PetRestTest {
 
     @Test
     public void getPetTest2() throws JsonProcessingException {
-        petRest.getPet();
+        petRest.getPet2();
     }
 
 }
