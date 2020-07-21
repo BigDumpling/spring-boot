@@ -30,6 +30,12 @@ public class HelloWorldController {
         return "Hello World";
     }
 
+    @GetMapping(name = "/name", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String getName() {
+        log.info("HelloWorldController,getName");
+        return "ligq";
+    }
+
     @PostMapping(value = "/people", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void people(@Valid @RequestBody People people, BindingResult result) {
         log.info("people == {}", people);

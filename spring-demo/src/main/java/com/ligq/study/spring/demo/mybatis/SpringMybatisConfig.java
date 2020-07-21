@@ -43,7 +43,7 @@ public class SpringMybatisConfig {
         sqlSessionFactoryBean.setDataSource(dataSource());
 
         ResourcePatternResolver resource = new PathMatchingResourcePatternResolver();
-        Resource[] resources = resource.getResources("resource/mybatis");
+        Resource[] resources = resource.getResources("classpath*:resource/mybatis/");
 
         File file = new File("resource/mybatis");
         log.info("files == {}", file.list());

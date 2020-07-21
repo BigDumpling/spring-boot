@@ -9,3 +9,10 @@ spring:
 
 process:
   name: spring-demo2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
