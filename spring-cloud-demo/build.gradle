@@ -26,8 +26,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${springCloudVersion}")
+    implementation ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${springCloudVersion}")
     implementation ("org.springframework.cloud:spring-cloud-starter-netflix-ribbon:${springCloudVersion}")
+    implementation ("org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${springCloudVersion}")
     testImplementation("junit:junit:${junitVersion}")
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

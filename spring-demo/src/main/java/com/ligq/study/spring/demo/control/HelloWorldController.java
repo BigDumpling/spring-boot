@@ -16,7 +16,6 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping
 public class HelloWorldController {
 
     @Value("${process.name}")
@@ -24,8 +23,8 @@ public class HelloWorldController {
     @Autowired
     private Map<String, PropertyEditorRegistrar> propertyEditorRegistrarMap;
 
-    @GetMapping("/world")
-    public String hello() {
+    @GetMapping("/world/{id}")
+    public String hello(@PathVariable("id") String id) {
         log.info("processName == {}", processName);
         return "Hello World";
     }
