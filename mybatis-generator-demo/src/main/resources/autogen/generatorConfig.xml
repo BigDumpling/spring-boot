@@ -69,7 +69,9 @@
 <!--        <table tableName="T_SALES_USER_MKT_LIST"></table>-->
 <!--        <table tableName="t_customer_group_info"></table>-->
 <!--        <table tableName="t_customer_social_ref"></table>-->
-        <table tableName="t_customer_related_ent_info"></table>
+<!--        <table tableName="t_customer_related_ent_info"></table>-->
+<!--        <table tableName="t_customer_label"></table>-->
+        <table tableName="t_notice_template"></table>
 <!--        <table tableName="t_credit_apply_node_info"></table>-->
 <!--        <table tableName="t_customer_auth_log"></table>-->
 <!--        <table tableName="t_credit_marketing_rate_info"></table>-->
