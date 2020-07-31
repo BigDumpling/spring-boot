@@ -29,6 +29,7 @@ subprojects{
             druidBootStarterVersion = '1.1.18'
             gsonVersion = '2.8.1'
             fastjsonVersion = '1.2.60'
+            feignVersion= '1.4.7.RELEASE'
 
             lombokVersion = '1.18.2'
             junitVersion = '4.12'

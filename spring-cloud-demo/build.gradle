@@ -29,6 +29,7 @@ dependencies {
     implementation ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${springCloudVersion}")
     implementation ("org.springframework.cloud:spring-cloud-starter-netflix-ribbon:${springCloudVersion}")
     implementation ("org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${springCloudVersion}")
+    implementation ("org.springframework.cloud:spring-cloud-starter-feign:${feignVersion}")
     testImplementation("junit:junit:${junitVersion}")
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
