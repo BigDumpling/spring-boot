@@ -23,4 +23,5 @@ include 'spring-ioc-demo'
 include 'spring-cloud-demo'
 include 'eureka-service1-demo'
 include 'eureka-service2-demo'
+include 'feign-client'
 
