@@ -50,6 +50,10 @@ public class TCreditLimitInfo {
 
     private BigDecimal marketInterestRateYear;
 
+    private String serviceFeeType;
+
+    private BigDecimal serviceFee;
+
     public String getSeqId() {
         return seqId;
     }
@@ -232,5 +236,21 @@ public class TCreditLimitInfo {
 
     public void setMarketInterestRateYear(BigDecimal marketInterestRateYear) {
         this.marketInterestRateYear = marketInterestRateYear;
+    }
+
+    public String getServiceFeeType() {
+        return serviceFeeType;
+    }
+
+    public void setServiceFeeType(String serviceFeeType) {
+        this.serviceFeeType = serviceFeeType;
+    }
+
+    public BigDecimal getServiceFee() {
+        return serviceFee;
+    }
+
+    public void setServiceFee(BigDecimal serviceFee) {
+        this.serviceFee = serviceFee;
     }
 }

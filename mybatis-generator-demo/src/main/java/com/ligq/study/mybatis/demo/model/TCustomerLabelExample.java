@@ -244,6 +244,146 @@ public class TCustomerLabelExample {
             return (Criteria) this;
         }
 
+        public Criteria andIdNoIsNull() {
+            addCriterion("ID_NO is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoIsNotNull() {
+            addCriterion("ID_NO is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoEqualTo(String value) {
+            addCriterion("ID_NO =", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoNotEqualTo(String value) {
+            addCriterion("ID_NO <>", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoGreaterThan(String value) {
+            addCriterion("ID_NO >", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoGreaterThanOrEqualTo(String value) {
+            addCriterion("ID_NO >=", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoLessThan(String value) {
+            addCriterion("ID_NO <", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoLessThanOrEqualTo(String value) {
+            addCriterion("ID_NO <=", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoLike(String value) {
+            addCriterion("ID_NO like", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoNotLike(String value) {
+            addCriterion("ID_NO not like", value, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoIn(List<String> values) {
+            addCriterion("ID_NO in", values, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoNotIn(List<String> values) {
+            addCriterion("ID_NO not in", values, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoBetween(String value1, String value2) {
+            addCriterion("ID_NO between", value1, value2, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNoNotBetween(String value1, String value2) {
+            addCriterion("ID_NO not between", value1, value2, "idNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoIsNull() {
+            addCriterion("MD5_ID_NO is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoIsNotNull() {
+            addCriterion("MD5_ID_NO is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoEqualTo(String value) {
+            addCriterion("MD5_ID_NO =", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoNotEqualTo(String value) {
+            addCriterion("MD5_ID_NO <>", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoGreaterThan(String value) {
+            addCriterion("MD5_ID_NO >", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoGreaterThanOrEqualTo(String value) {
+            addCriterion("MD5_ID_NO >=", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoLessThan(String value) {
+            addCriterion("MD5_ID_NO <", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoLessThanOrEqualTo(String value) {
+            addCriterion("MD5_ID_NO <=", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoLike(String value) {
+            addCriterion("MD5_ID_NO like", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoNotLike(String value) {
+            addCriterion("MD5_ID_NO not like", value, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoIn(List<String> values) {
+            addCriterion("MD5_ID_NO in", values, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoNotIn(List<String> values) {
+            addCriterion("MD5_ID_NO not in", values, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoBetween(String value1, String value2) {
+            addCriterion("MD5_ID_NO between", value1, value2, "md5IdNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IdNoNotBetween(String value1, String value2) {
+            addCriterion("MD5_ID_NO not between", value1, value2, "md5IdNo");
+            return (Criteria) this;
+        }
+
         public Criteria andLabelCodeIsNull() {
             addCriterion("LABEL_CODE is null");
             return (Criteria) this;

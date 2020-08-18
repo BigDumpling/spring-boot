@@ -5,6 +5,10 @@ public class TCustomerLabel {
 
     private String outCustomerId;
 
+    private String idNo;
+
+    private String md5IdNo;
+
     private String labelCode;
 
     private String labelName;
@@ -37,6 +41,22 @@ public class TCustomerLabel {
 
     public void setOutCustomerId(String outCustomerId) {
         this.outCustomerId = outCustomerId;
+    }
+
+    public String getIdNo() {
+        return idNo;
+    }
+
+    public void setIdNo(String idNo) {
+        this.idNo = idNo;
+    }
+
+    public String getMd5IdNo() {
+        return md5IdNo;
+    }
+
+    public void setMd5IdNo(String md5IdNo) {
+        this.md5IdNo = md5IdNo;
     }
 
     public String getLabelCode() {

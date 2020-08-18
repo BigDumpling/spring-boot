@@ -1652,6 +1652,136 @@ public class TCreditLimitInfoExample {
             addCriterion("MARKET_INTEREST_RATE_YEAR not between", value1, value2, "marketInterestRateYear");
             return (Criteria) this;
         }
+
+        public Criteria andServiceFeeTypeIsNull() {
+            addCriterion("SERVICE_FEE_TYPE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeIsNotNull() {
+            addCriterion("SERVICE_FEE_TYPE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeEqualTo(String value) {
+            addCriterion("SERVICE_FEE_TYPE =", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeNotEqualTo(String value) {
+            addCriterion("SERVICE_FEE_TYPE <>", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeGreaterThan(String value) {
+            addCriterion("SERVICE_FEE_TYPE >", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("SERVICE_FEE_TYPE >=", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeLessThan(String value) {
+            addCriterion("SERVICE_FEE_TYPE <", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeLessThanOrEqualTo(String value) {
+            addCriterion("SERVICE_FEE_TYPE <=", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeLike(String value) {
+            addCriterion("SERVICE_FEE_TYPE like", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeNotLike(String value) {
+            addCriterion("SERVICE_FEE_TYPE not like", value, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeIn(List<String> values) {
+            addCriterion("SERVICE_FEE_TYPE in", values, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeNotIn(List<String> values) {
+            addCriterion("SERVICE_FEE_TYPE not in", values, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeBetween(String value1, String value2) {
+            addCriterion("SERVICE_FEE_TYPE between", value1, value2, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeTypeNotBetween(String value1, String value2) {
+            addCriterion("SERVICE_FEE_TYPE not between", value1, value2, "serviceFeeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeIsNull() {
+            addCriterion("SERVICE_FEE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeIsNotNull() {
+            addCriterion("SERVICE_FEE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeEqualTo(BigDecimal value) {
+            addCriterion("SERVICE_FEE =", value, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeNotEqualTo(BigDecimal value) {
+            addCriterion("SERVICE_FEE <>", value, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeGreaterThan(BigDecimal value) {
+            addCriterion("SERVICE_FEE >", value, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("SERVICE_FEE >=", value, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeLessThan(BigDecimal value) {
+            addCriterion("SERVICE_FEE <", value, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("SERVICE_FEE <=", value, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeIn(List<BigDecimal> values) {
+            addCriterion("SERVICE_FEE in", values, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeNotIn(List<BigDecimal> values) {
+            addCriterion("SERVICE_FEE not in", values, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("SERVICE_FEE between", value1, value2, "serviceFee");
+            return (Criteria) this;
+        }
+
+        public Criteria andServiceFeeNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("SERVICE_FEE not between", value1, value2, "serviceFee");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
