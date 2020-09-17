@@ -37,7 +37,7 @@
         <!--        <table tableName="t_deal_repay_apply"/>-->
 <!--                <table tableName="t_product_info"/>-->
 <!--                <table tableName="t_credit_reject_code"/>-->
-        <!--        <table tableName="T_CREDIT_APPLY_FUND"/>-->
+                <table tableName="T_CREDIT_APPLY_FUND"/>
 <!--                <table tableName="lacc_duebill_info"/>-->
 <!--                <table tableName="lacc_repay_record"/>-->
 <!--                <table tableName="lacc_repay_plan"/>-->
@@ -71,7 +71,9 @@
 <!--        <table tableName="t_customer_social_ref"></table>-->
 <!--        <table tableName="t_credit_message_log"></table>-->
 <!--        <table tableName="t_customer_related_ent_info"></table>-->
-        <table tableName="t_customer_label"></table>
+<!--        <table tableName="t_customer_label"></table>-->
+<!--        <table tableName="t_marketing_coupon_template_info"></table>-->
+<!--        <table tableName="t_credit_ci_apply_info"></table>-->
 <!--        <table tableName="t_notice_template"></table>-->
 <!--        <table tableName="t_credit_apply_node_info"></table>-->
 <!--        <table tableName="t_credit_apply_log"></table>-->
