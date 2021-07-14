@@ -1,0 +1,67 @@
+<Baplie>
+    <Header>
+        <MessageID>0D22ADFD-FD37-4D3E-BE06-05824DC20092</MessageID>
+        <ActionCode>9</ActionCode>
+        <SenderCode>BANR.TAO</SenderCode>
+        <ManifestType>Baplie</ManifestType>
+        <MessageType>BAPLIE</MessageType>
+        <CompanyCode>BANR</CompanyCode>
+        <BranchCode>TAO</BranchCode>
+        <SubmitterID>IT@BAL.com</SubmitterID>
+        <SendDateTime>2021-06-20 04:54:34</SendDateTime>
+        <Version>2.0</Version>
+    </Header>
+    <DetailTransport>
+        <Carrier CarrierCode="BANR">BANR</Carrier>
+        <Vessel IMO="9700251" Voyage="2122E" CountryFlagCode="MT">QUEEN ESTHER</Vessel>
+        <LoadingPort Date="2021-05-26"  ATADate ="2021-05-26" ETANextPort ="2021-05-26" Code="CNNGB">NINGBO</LoadingPort>
+        <NextPort Date="2021-05-26" Code="USLAX">LOS ANGELES,CA</NextPort>
+    </DetailTransport>
+    <StowageCells>
+        <StowageCell>
+            <VesselStowageCell>0220982</VesselStowageCell>
+            <StowageCellType>5</StowageCellType>
+            <NumberOfPackages>2723</NumberOfPackages>
+            <UnitCode>CTN</UnitCode>
+            <NatureOfCargoCode>CN</NatureOfCargoCode>
+            <RefTypeCode>AAA</RefTypeCode>
+            <Reference><![CDATA[1 PIECE MACHINERY]]></Reference>
+            <VGMWeight>21900</VGMWeight>
+            <VGMWeightUnit>KG</VGMWeightUnit>
+            <Dimensions>
+                <BaplieDimension>
+                    <DimensionQualifier>1</DimensionQualifier>
+                    <MeasureUnit>CMT</MeasureUnit>
+                    <Length>100</Length>
+                    <Width>200</Width>
+                    <Height>300</Height>
+                </BaplieDimension>
+            </Dimensions>
+            <TemperatureSetting>50</TemperatureSetting>
+            <TemperatureUnit>CEL</TemperatureUnit>
+            <TemperatureMinimum>10</TemperatureMinimum>
+            <TemperatureMaximum>20</TemperatureMaximum>
+            <LoadingPortCode>CNNGB</LoadingPortCode>
+            <DischargePortCode>USLAX</DischargePortCode>
+            <DeliveryPortCode>USLAX</DeliveryPortCode>
+            <BLNumber>CMDUXIA0707860</BLNumber>
+            <Containers>
+                <BaplieContainer>
+                    <ContianerNo>BURU6608762</ContianerNo>
+                    <ContianerType>2099</ContianerType>
+                    <ContainerState>5</ContainerState>
+                    <OperationCarrier CarrierCode="BANR">BANR</OperationCarrier>
+                    <HazardousDetails>
+                        <IMOClassCode>IMOClass</IMOClassCode>
+                        <PageNumber>PageNumber</PageNumber>
+                        <UNDGNumber>UNDGNumber</UNDGNumber>
+                        <FlashpointTemperature UOM="UOM">Flashpoint</FlashpointTemperature>
+                        <ContactName>ContactName</ContactName>
+                        <ContactPhone>ContactPhone</ContactPhone>
+                        <HazardousGoodsComments>DgDescription</HazardousGoodsComments>
+                    </HazardousDetails>
+                </BaplieContainer>
+            </Containers>
+        </StowageCell>
+    </StowageCells>
+</Baplie>

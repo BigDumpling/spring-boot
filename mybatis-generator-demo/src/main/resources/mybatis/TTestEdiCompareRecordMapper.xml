@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TTestEdiCompareRecordMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TTestEdiCompareRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="nc_work_no" jdbcType="VARCHAR" property="ncWorkNo" />
+    <result column="gm2_work_no" jdbcType="VARCHAR" property="gm2WorkNo" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="compare_date" jdbcType="VARCHAR" property="compareDate" />
+    <result column="compare_result" jdbcType="INTEGER" property="compareResult" />
+    <result column="fail_message" jdbcType="VARCHAR" property="failMessage" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="nc_message" jdbcType="LONGVARCHAR" property="ncMessage" />
+    <result column="gm2-message" jdbcType="LONGVARCHAR" property="gm2Message" />
+  </resultMap>
+</mapper>

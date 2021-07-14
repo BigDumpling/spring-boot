@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: apollo-demo
+
+server:
+  port: 9090
+
+app:
+  id: SampleApp
+
+apollo:
+  meta: http://127.0.0.1:8080

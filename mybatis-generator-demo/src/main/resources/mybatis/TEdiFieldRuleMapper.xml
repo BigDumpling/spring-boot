@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TEdiFieldRuleMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TEdiFieldRule">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="channel_id" jdbcType="BIGINT" property="channelId" />
+    <result column="data_id" jdbcType="BIGINT" property="dataId" />
+    <result column="rule_name" jdbcType="VARCHAR" property="ruleName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="message_type" jdbcType="VARCHAR" property="messageType" />
+    <result column="transfer_company_code" jdbcType="VARCHAR" property="transferCompanyCode" />
+    <result column="transfer_company_name" jdbcType="VARCHAR" property="transferCompanyName" />
+    <result column="field_name" jdbcType="VARCHAR" property="fieldName" />
+    <result column="enabled" jdbcType="BIT" property="enabled" />
+    <result column="required_condition" jdbcType="BIT" property="requiredCondition" />
+    <result column="condition_expression" jdbcType="VARCHAR" property="conditionExpression" />
+    <result column="rule_valid_expression" jdbcType="VARCHAR" property="ruleValidExpression" />
+    <result column="required_format_valid" jdbcType="BIT" property="requiredFormatValid" />
+    <result column="extra_process" jdbcType="INTEGER" property="extraProcess" />
+    <result column="condition_sort" jdbcType="VARCHAR" property="conditionSort" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_by_desc" jdbcType="VARCHAR" property="createByDesc" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modify_by" jdbcType="BIGINT" property="modifyBy" />
+    <result column="modify_by_desc" jdbcType="VARCHAR" property="modifyByDesc" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+  </resultMap>
+</mapper>

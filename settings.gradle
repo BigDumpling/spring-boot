@@ -24,4 +24,7 @@ include 'spring-cloud-demo'
 include 'eureka-service1-demo'
 include 'eureka-service2-demo'
 include 'feign-client'
+include 'common-test'
+include 'apollo-demo'
+include 'x-stream'
 

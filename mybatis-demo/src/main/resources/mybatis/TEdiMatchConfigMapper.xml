@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TEdiMatchConfigMapper">
+    <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TEdiMatchConfig">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="match_config_id" jdbcType="BIGINT" property="matchConfigId"/>
+        <result column="template_id" jdbcType="BIGINT" property="templateId"/>
+        <result column="channel_id" jdbcType="BIGINT" property="channelId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="business_type" jdbcType="VARCHAR" property="businessType"/>
+        <result column="business_type_name" jdbcType="VARCHAR" property="businessTypeName"/>
+        <result column="message_type" jdbcType="VARCHAR" property="messageType"/>
+        <result column="message_type_name" jdbcType="VARCHAR" property="messageTypeName"/>
+        <result column="message_type_code" jdbcType="VARCHAR" property="messageTypeCode"/>
+        <result column="booking_agent_code" jdbcType="VARCHAR" property="bookingAgentCode"/>
+        <result column="booking_agent_name" jdbcType="VARCHAR" property="bookingAgentName"/>
+        <result column="start_shipment_port" jdbcType="VARCHAR" property="startShipmentPort"/>
+        <result column="start_shipment_port_name" jdbcType="VARCHAR" property="startShipmentPortName"/>
+        <result column="transfer_company_code" jdbcType="VARCHAR" property="transferCompanyCode"/>
+        <result column="transfer_company_name" jdbcType="VARCHAR" property="transferCompanyName"/>
+        <result column="shipping_agent_code" jdbcType="VARCHAR" property="shippingAgentCode"/>
+        <result column="shipping_agent_name" jdbcType="VARCHAR" property="shippingAgentName"/>
+        <result column="transfer_type" jdbcType="VARCHAR" property="transferType"/>
+        <result column="transfer_type_name" jdbcType="VARCHAR" property="transferTypeName"/>
+        <result column="external_system_code" jdbcType="VARCHAR" property="externalSystemCode"/>
+        <result column="external_system_name" jdbcType="VARCHAR" property="externalSystemName"/>
+        <result column="customer_code" jdbcType="VARCHAR" property="customerCode"/>
+        <result column="send_code" jdbcType="VARCHAR" property="sendCode"/>
+        <result column="send_goods_code" jdbcType="VARCHAR" property="sendGoodsCode"/>
+        <result column="receive_code" jdbcType="VARCHAR" property="receiveCode"/>
+        <result column="export_type" jdbcType="VARCHAR" property="exportType"/>
+        <result column="export_type_name" jdbcType="VARCHAR" property="exportTypeName"/>
+        <result column="ftp_address" jdbcType="VARCHAR" property="ftpAddress"/>
+        <result column="ftp_path" jdbcType="VARCHAR" property="ftpPath"/>
+        <result column="ftp_port" jdbcType="INTEGER" property="ftpPort"/>
+        <result column="ftp_username" jdbcType="VARCHAR" property="ftpUsername"/>
+        <result column="ftp_password" jdbcType="VARCHAR" property="ftpPassword"/>
+        <result column="transfer_company_app_code" jdbcType="VARCHAR" property="transferCompanyAppCode"/>
+        <result column="transform_resource_type" jdbcType="TINYINT" property="transformResourceType"/>
+        <result column="is_allow_cn" jdbcType="BIT" property="isAllowCn"/>
+        <result column="login" jdbcType="TINYINT" property="login"/>
+        <result column="submit_type" jdbcType="TINYINT" property="submitType"/>
+        <result column="content_type" jdbcType="TINYINT" property="contentType"/>
+        <result column="send_type" jdbcType="TINYINT" property="sendType"/>
+        <result column="header" jdbcType="VARCHAR" property="header"/>
+        <result column="sign" jdbcType="VARCHAR" property="sign"/>
+        <result column="enabled" jdbcType="BIT" property="enabled"/>
+        <result column="org_id" jdbcType="BIGINT" property="orgId"/>
+        <result column="org_name" jdbcType="VARCHAR" property="orgName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_by" jdbcType="BIGINT" property="createBy"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="modify_by" jdbcType="BIGINT" property="modifyBy"/>
+        <result column="version" jdbcType="VARCHAR" property="version"/>
+        <result column="is_deleted" jdbcType="BIT" property="isDeleted"/>
+    </resultMap>
+
+    <select id="selectListByGroup" resultMap="BaseResultMap">
+        select org_id, external_system_code, message_type, transfer_company_code, booking_agent_code
+        from t_edi_match_config
+        where is_deleted = false
+        group by org_id, external_system_code, message_type, transfer_company_code, booking_agent_code
+        having count(*) > 1
+    </select>
+</mapper>

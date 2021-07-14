@@ -18,27 +18,62 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.50.17.10:3306/saas?useUnicode=true;characterEncoding=utf8"
-                        userId="saasopr"
-                        password="Only4SaasApp!">
+                        connectionURL="jdbc:mysql://rm-bp1er61f8987f6g926o.mysql.rds.aliyuncs.com:3306/edi?useUnicode=true;characterEncoding=utf8"
+                        userId="saas1"
+                        password="ntf3MGBmZZiWrO5Q">
         </jdbcConnection>
+
+        <!--        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
+        <!--                        connectionURL="jdbc:mysql://127.0.0.1:3306/edi?useUnicode=true;characterEncoding=utf8"-->
+        <!--                        userId="root"-->
+        <!--                        password="root1234">-->
+        <!--        </jdbcConnection>-->
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="true"/>
-<!--            <property name="useJSR310Types" value="true"/>-->
+            <!--            <property name="useJSR310Types" value="true"/>-->
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.ligq.study.mybatis.demo.model" targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis" targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.ligq.study.mybatis.demo.dao" targetProject="src/main/java" type="XMLMAPPER" />
-<!--        <table tableName="t_customer_login_log">-->
-<!--            &lt;!&ndash;<property name="runtimeSchema" value="sqg"/>&ndash;&gt;-->
-<!--&lt;!&ndash;            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
+        <javaModelGenerator targetPackage="com.ligq.study.mybatis.demo.model" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="mybatis" targetProject="src/main/resources"/>
+        <javaClientGenerator targetPackage="com.ligq.study.mybatis.demo.dao" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+        <!--        <table tableName="t_customer_login_log">-->
+        <!--            &lt;!&ndash;<property name="runtimeSchema" value="sqg"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
+        <!--        </table>-->
+        <!--        <table tableName="t_marketing_awrd_grant_log">-->
+        <!--            &lt;!&ndash;<property name="runtimeSchema" value="sqg"/>&ndash;&gt;-->
+
+        <!--            &lt;!&ndash;            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
+        <!--        </table>-->
+
+<!--        <table tableName="t_edi_data">-->
+<!--            <generatedKey column="data_id" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
-<!--        <table tableName="t_marketing_awrd_grant_log">-->
-<!--            &lt;!&ndash;<property name="runtimeSchema" value="sqg"/>&ndash;&gt;-->
-<!--            &lt;!&ndash;            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
+<!--        <table tableName="t_edi_transform">-->
+<!--            <generatedKey column="transform_id" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
-        <table tableName="T_FUND_ORG_INFO" />
+<!--        <table tableName="t_edi_code_limit">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="t_edi_field_rule">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="t_edi_field_rule_cond_group">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="t_edi_field_rule_condition">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="t_edi_field_rule_format">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+
+        <table tableName="t_edi_log_track">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+
+
     </context>
 </generatorConfiguration>

@@ -37,7 +37,7 @@
         <!--        <table tableName="t_deal_repay_apply"/>-->
 <!--                <table tableName="t_product_info"/>-->
 <!--                <table tableName="t_credit_reject_code"/>-->
-                <table tableName="T_CREDIT_APPLY_FUND"/>
+<!--                <table tableName="T_CREDIT_APPLY_FUND"/>-->
 <!--                <table tableName="lacc_duebill_info"/>-->
 <!--                <table tableName="lacc_repay_record"/>-->
 <!--                <table tableName="lacc_repay_plan"/>-->
@@ -60,6 +60,7 @@
 <!--        <table tableName="t_base_bank_info"/>-->
 <!--        <table tableName="t_base_area_city"/>-->
 <!--        <table tableName="t_customer_card_info"/>-->
+<!--        <table tableName="t_customer_login_info"/>-->
 <!--        <table tableName="t_product_info"/>-->
 <!--        <table tableName="t_product_introduce"/>-->
 <!--        <table tableName="T_SALES_USER_INFO"></table>-->
@@ -81,6 +82,8 @@
 <!--        <table tableName="t_credit_marketing_rate_info"></table>-->
 <!--        <table tableName="temp_interest_discount_cust"></table>-->
 <!--        <table tableName="t_credit_limit_info"></table>-->
+<!--        <table tableName="t_customer_re_open_credit"></table>-->
+        <table tableName="t_customer_flow_relative"></table>
 <!--        <table tableName="T_SALES_USER_INFO"></table>-->
 <!--        <table tableName="T_SALES_USER_LESSEE"></table>-->
 <!--        <table tableName="T_SALES_USER_LESSEE"></table>-->

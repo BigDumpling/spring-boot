@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TEdiGm2OrderPlanMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TEdiGm2OrderPlan">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="plan_id" jdbcType="BIGINT" property="planId" />
+    <result column="case_number" jdbcType="BIGINT" property="caseNumber" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+    <result column="data_create_time" jdbcType="TIMESTAMP" property="dataCreateTime" />
+    <result column="data_modify_time" jdbcType="TIMESTAMP" property="dataModifyTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

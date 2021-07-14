@@ -23,11 +23,12 @@ configurations {
 
 mybatisGenerator {
     verbose = false
-    configFile = "src/main/resources/autogen/generatorConfig.xml"
+    configFile = "src/main/resources/autogen/generatorConfig-tk.xml"
 
     dependencies {
         mybatisGenerator "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorCoreVersion}"
         mybatisGenerator "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+        mybatisGenerator "tk.mybatis:mapper:${tkMybatisMapperVersion}"
     }
 }
 
@@ -38,5 +39,7 @@ repositories {
 
 dependencies {
     implementation("org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorCoreVersion}")
+    implementation("tk.mybatis:mapper:${tkMybatisMapperVersion}")
+//    compile("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypeHandlerJsrVersion}")
     testCompile 'junit:junit:4.12'
 }

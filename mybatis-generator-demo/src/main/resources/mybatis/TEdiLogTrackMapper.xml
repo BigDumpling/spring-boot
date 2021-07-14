@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TEdiLogTrackMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TEdiLogTrack">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="work_no" jdbcType="VARCHAR" property="workNo" />
+    <result column="trace_id" jdbcType="VARCHAR" property="traceId" />
+    <result column="business_no" jdbcType="VARCHAR" property="businessNo" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_by_desc" jdbcType="VARCHAR" property="createByDesc" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modify_by" jdbcType="BIGINT" property="modifyBy" />
+    <result column="modify_by_desc" jdbcType="VARCHAR" property="modifyByDesc" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="receive_info" jdbcType="LONGVARCHAR" property="receiveInfo" />
+    <result column="config_info" jdbcType="LONGVARCHAR" property="configInfo" />
+    <result column="operator" jdbcType="LONGVARCHAR" property="operator" />
+    <result column="source_param" jdbcType="LONGVARCHAR" property="sourceParam" />
+    <result column="fill_param" jdbcType="LONGVARCHAR" property="fillParam" />
+    <result column="package_param" jdbcType="LONGVARCHAR" property="packageParam" />
+    <result column="template" jdbcType="LONGVARCHAR" property="template" />
+    <result column="template_param" jdbcType="LONGVARCHAR" property="templateParam" />
+    <result column="error_msg" jdbcType="LONGVARCHAR" property="errorMsg" />
+    <result column="message" jdbcType="LONGVARCHAR" property="message" />
+  </resultMap>
+</mapper>

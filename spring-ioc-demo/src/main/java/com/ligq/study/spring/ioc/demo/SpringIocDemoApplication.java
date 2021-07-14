@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @Slf4j
-@SpringBootApplication
-@EnableAspectJAutoProxy
-@EnableTransactionManagement
+@SpringBootApplication(scanBasePackages = {"com.ligq.study.spring.ioc.demo", "com.dzg.doraemon.memcached"})
+//@EnableAspectJAutoProxy
+//@EnableTransactionManagement
 public class SpringIocDemoApplication {
 
     public static void main(String[] args) {

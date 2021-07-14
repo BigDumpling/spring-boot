@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ligq.study.mybatis.demo.dao.TEdiFieldRuleCondGroupMapper">
+  <resultMap id="BaseResultMap" type="com.ligq.study.mybatis.demo.model.TEdiFieldRuleCondGroup">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="field_rule_id" jdbcType="BIGINT" property="fieldRuleId" />
+    <result column="logic_opt" jdbcType="INTEGER" property="logicOpt" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="rule_condition_type" jdbcType="INTEGER" property="ruleConditionType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_by_desc" jdbcType="VARCHAR" property="createByDesc" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modify_by" jdbcType="BIGINT" property="modifyBy" />
+    <result column="modify_by_desc" jdbcType="VARCHAR" property="modifyByDesc" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+  </resultMap>
+</mapper>
