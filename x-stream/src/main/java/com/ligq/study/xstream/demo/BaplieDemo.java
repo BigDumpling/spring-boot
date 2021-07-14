@@ -9,6 +9,7 @@ package com.ligq.study.xstream.demo;
 import com.ligq.study.xstream.model.baplie.Baplie;
 import com.ligq.study.xstream.model.baplie.Header;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.json.JsonHierarchicalStreamDriver;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.ByteArrayOutputStream;
@@ -60,6 +61,11 @@ public class BaplieDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void xmlToJson(){
+        XStream xStream = new XStream(new JsonHierarchicalStreamDriver());
+
     }
 
     private static String readXml(String path) throws IOException {
